@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="ExampleControlBing.ControlDemos.FloatingPanelExample"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:p="clr-namespace:DeepEarth.BingMapsToolkit.Client.Controls;assembly=DeepEarth.BingMapsToolkit.Client.Controls.PersistedState"
+    xmlns:fp="clr-namespace:DeepEarth.BingMapsToolkit.Client.Controls;assembly=DeepEarth.BingMapsToolkit.Client.Controls.FloatingPanel" >
+    <Grid x:Name="LayoutRoot" Background="White">
+        <fp:FloatingPanel x:Name="fpanel1" Title="My Test" WindowPosition="100,100" SnapPosition="Left">
+            <StackPanel x:Name="internalPanel" Orientation="Vertical">
+                <Button x:Name="move" Height="50" Width="200" Content="Move to 0,0" Click="move_Click"></Button>
+                <Button x:Name="addcontent" Height="50" Width="200" Content="Add internal content" Click="addcontent_Click"></Button>
+            </StackPanel>
+        </fp:FloatingPanel>
+        <StackPanel Orientation="Horizontal" >
+            <TextBlock Text="Align" />
+            <RadioButton x:Name="optionTop" Content="Top" Checked="option_Checked" />
+            <RadioButton x:Name="optionLeft" Content="Left" Checked="option_Checked" />
+            <RadioButton x:Name="optionBottom" Content="Bottom" Checked="option_Checked" />
+            <RadioButton x:Name="optionRight" Content="Right" Checked="option_Checked" />
+            <RadioButton x:Name="optionBottomLeft" Content="BottomLeft" Checked="option_Checked" />
+            <RadioButton x:Name="optionBottomRight" Content="BottomRight" Checked="option_Checked" />
+            <RadioButton x:Name="optionTopLeft" Content="TopLeft" Checked="option_Checked" />
+            <RadioButton x:Name="optionTopRight" Content="TopRight" Checked="option_Checked" />
+            <Button x:Name="show" Height="50" Width="200" Content="Show" Visibility="Collapsed" Click="show_Click" ></Button>
+        </StackPanel>
+        <!--<p:PersistedState Name="persistedState" />-->
+    </Grid>
+</UserControl>

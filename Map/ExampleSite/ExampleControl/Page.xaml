@@ -1,0 +1,57 @@
+﻿<UserControl  
+    x:Class="ExampleControl.Page"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"	
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:DeepControls="clr-namespace:DeepEarth.Client.MapControl.Controls;assembly=DeepEarth.Client.MapControl" 
+    xmlns:DeepEarth="clr-namespace:DeepEarth.Client.MapControl;assembly=DeepEarth.Client.MapControl" 
+    xmlns:DeepProtoControls="clr-namespace:ExampleControl.Controls"  
+    xmlns:c="clr-namespace:DeepEarth.Client.Controls.DEMap;assembly=DeepEarth.Client.Controls.DEMap.CoordinatePanel"
+    xmlns:s="clr-namespace:DeepEarth.Client.Controls.DEMap;assembly=DeepEarth.Client.Controls.DEMap.ScalePanel"
+    xmlns:n="clr-namespace:DeepEarth.Client.Controls.DEMap;assembly=DeepEarth.Client.Controls.DEMap.NavigationPanel"
+	xmlns:dl="clr-namespace:DeepEarth.Client.Controls.DEMap;assembly=DeepEarth.Client.Controls.DEMap.DateLine"
+    xmlns:l="clr-namespace:DeepEarth.Client.Controls;assembly=DeepEarth.Client.Controls.Logo"
+	
+    mc:Ignorable="d" d:DesignWidth="677" d:DesignHeight="472">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/DeepEarth.Client.Controls.DEMap.Common;component/Resources/CommonStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    
+    <Grid x:Name="LayoutRoot" >
+		
+        <!-- Map Control -->
+        <DeepEarth:Map x:Name="map" Margin="0,0,0,0" Style="{StaticResource PrototypeMapStyle}">
+            <DeepControls:ZoomSliderControl VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,12,70" Width="240"/>
+        </DeepEarth:Map>
+
+		<!--DateLine Control -->
+		<dl:DateLine x:Name="dateLine" MapName="map" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="2,20,50,2" />
+		
+		<c:CoordinatePanel x:Name="coord" MapName="map" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="2,2,2,2" />
+        <s:ScalePanel x:Name="scalepanel" MapName="map" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="2,2,2,32" />
+        <l:Logo x:Name="logo" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="80,8,8,8" />
+        <!-- Side Panel Control -->
+        <DeepProtoControls:SidePanelControl x:Name="sidePanelControl" HorizontalAlignment="Right" Margin="0,85,8,95"/>
+
+        <!-- Nav Control -->
+        <n:NavigationPanel x:Name="navpanel" MapName="map" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,8,8,8" >
+            <StackPanel Orientation="Horizontal" MinHeight="48.111" >
+                <Button x:Name="ToggleSidePanel" Click="ToggleSidePanel_Click" Margin="2,8,2,8" Style="{StaticResource StandardButton}">
+                    <ToolTipService.ToolTip>
+                        <TextBlock Text="Toggle SidePanel" />
+                    </ToolTipService.ToolTip>
+                    <Image x:Name="ToggleSidePanelImage" Source="Resources/ToolBar/Tools.png"/>
+                </Button>
+                <DeepProtoControls:ToolBarItems x:Name="ToolBarItemsPanel"/>
+            </StackPanel>
+        </n:NavigationPanel>
+
+    </Grid>
+
+</UserControl>

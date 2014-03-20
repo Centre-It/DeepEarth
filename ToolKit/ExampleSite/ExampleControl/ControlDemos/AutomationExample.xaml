@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="ExampleControlBing.ControlDemos.AutomationExample"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+	xmlns:a="clr-namespace:DeepEarth.BingMapsToolkit.Client.Controls;assembly=DeepEarth.BingMapsToolkit.Client.Controls.Automation"
+	xmlns:m="clr-namespace:Microsoft.Maps.MapControl;assembly=Microsoft.Maps.MapControl">
+    <Grid x:Name="LayoutRoot" Background="White">
+		<m:Map x:Name="map" CredentialsProvider="{StaticResource MyCredentials}" />
+		<a:Automation Name="automation" MapName="map" />
+		<StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+			<Button Content="Foreach scenario 1" Width="200" Margin="10,0,0,0" x:Name="scenario1" Click="scenario1_Click"></Button>
+			<Button Content="Foreach scenario 2" Width="200" Margin="10,0,0,0" x:Name="scenario2" Click="scenario2_Click"></Button>
+			<Button Content="Zoom level scenario" Width="200" Margin="10,0,0,0" x:Name="scenario3" Click="scenario3_Click"></Button>
+			<Button Content="Zoom to coordinates scenario" Width="200" Margin="10,0,0,0" x:Name="scenario4" Click="scenario4_Click"></Button>
+		</StackPanel>
+	</Grid>
+</UserControl>

@@ -1,0 +1,33 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:DeepEarth.Client.Controls.DEMap">
+
+	<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary Source="/DeepEarth.Client.Controls.DEMap.Common;component/Resources/CommonStyles.xaml" />
+	</ResourceDictionary.MergedDictionaries>
+
+	<Style TargetType="local:DateLine">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="local:DateLine">
+					<Border  
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}" >
+						<StackPanel Orientation="Vertical">
+							<TextBlock x:Name="PART_showing" Text=" "/>
+							<StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
+
+								<ComboBox x:Name="PART_datesList" Width="180" Style="{StaticResource ComboBoxStyle}" />
+								<Canvas Margin="15,0,0,0" x:Name="PART_sliderCanvas" Width="500" Height="12">
+									<Line X1="0" X2="500" Y1="6" Y2="6"  Stroke="Green" StrokeThickness="1" />
+									<Line X1="0" X2="500" Y1="7" Y2="7"   Stroke="Green" StrokeThickness="1" />
+								</Canvas>
+							</StackPanel>
+						</StackPanel>
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+</ResourceDictionary>

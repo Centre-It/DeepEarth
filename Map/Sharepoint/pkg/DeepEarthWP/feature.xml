@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Feature Id="cc4f890c-c666-4c68-b93f-d0de351e1eff" Title="DeepEarthWP" Scope="Site" Version="1.0.0.0" Hidden="FALSE" DefaultResourceFile="core" xmlns="http://schemas.microsoft.com/sharepoint/">
+  <ElementManifests>
+    <ElementManifest Location="DeepEarthWP\DeepEarthWP.xml" />
+    <ElementFile Location="DeepEarthWP\DeepEarthWP.webpart" />
+  </ElementManifests>
+</Feature>

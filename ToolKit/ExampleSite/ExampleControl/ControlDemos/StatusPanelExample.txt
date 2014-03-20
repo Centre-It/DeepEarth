@@ -1,0 +1,37 @@
+﻿XAML:
+
+<UserControl x:Class="ExampleControlBing.ControlDemos.StatusPanelExample"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:m="clr-namespace:Microsoft.Maps.MapControl;assembly=Microsoft.Maps.MapControl" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+	xmlns:s="clr-namespace:DeepEarth.BingMapsToolkit.Client.Controls;assembly=DeepEarth.BingMapsToolkit.Client.Controls.StatusPanel"
+    >
+	<Grid x:Name="LayoutRoot">
+		<m:Map x:Name="map" CredentialsProvider="{StaticResource MyCredentials}" />
+		<s:StatusPanel Name="statusPanel" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="4,4,4,4"/>
+	</Grid>
+</UserControl>
+
+CS:
+
+using System;
+using DeepEarth.BingMapsToolkit.Client.Controls;
+using Microsoft.Maps.MapControl;
+
+namespace ExampleControlBing.ControlDemos
+{
+    public partial class StatusPanelExample
+    {
+        public StatusPanelExample()
+        {
+            InitializeComponent();
+            map.ViewChangeEnd += map_ViewChangeEnd;
+        }
+
+        private void map_ViewChangeEnd(object sender, MapEventArgs e)
+        {
+            StatusCommands.ReportStatusCommand.Execute(String.Format("Lon:{0} Lat:{1}", map.Center.Longitude,
+                                                                     map.Center.Latitude));
+        }
+    }
+}

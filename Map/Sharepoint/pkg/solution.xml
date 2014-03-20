@@ -1,0 +1,9 @@
+﻿<solution id="ee8b2868-3033-4d45-b0b3-59dc6cb26c78" name="DeepEarthWP">
+  <features>
+    <feature id="cc4f890c-c666-4c68-b93f-d0de351e1eff">
+      <featureElements>
+        <featureElement id="87522800-e396-4b0c-b04f-2cc3d7f82aa6" name="DeepEarthWP" />
+      </featureElements>
+    </feature>
+  </features>
+</solution>

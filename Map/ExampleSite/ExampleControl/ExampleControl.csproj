@@ -1,0 +1,326 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{93D637C5-1985-42F7-8653-0CD810F1F05E}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ExampleControl</RootNamespace>
+    <AssemblyName>ExampleControl</AssemblyName>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>
+    </SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>DeepEarthExampleControl.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>ExampleControl.App</SilverlightAppEntry>
+    <TestPageFileName>TestPage.html</TestPageFileName>
+    <CreateTestPage>true</CreateTestPage>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>false</ThrowErrorsInValidation>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GeoAPI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libraries\GeoAPI\Bin\Debug\GeoAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libraries\NetTopologySuite\Bin\Debug\NetTopologySuite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows" />
+    <Reference Include="mscorlib" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Controls.DataVisualization.Toolkit, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libraries\SilverlightToolkit\System.Windows.Controls.DataVisualization.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Input.Toolkit, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libraries\SilverlightToolkit\System.Windows.Controls.Input.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Layout.Toolkit, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libraries\SilverlightToolkit\System.Windows.Controls.Layout.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Theming.Toolkit, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libraries\SilverlightToolkit\System.Windows.Controls.Theming.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Toolkit, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libraries\SilverlightToolkit\System.Windows.Controls.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Windows.Browser" />
+    <Page Include="Controls\SidePanelControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\ToolBarItems.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="Controls\SidePanelControl.xaml.cs">
+      <DependentUpon>SidePanelControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ToolBarItems.xaml.cs">
+      <DependentUpon>ToolBarItems.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ColourPicker\ClickTextBox.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controls\ColourPicker\ColorChangedEventArgs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controls\ColourPicker\ColorPicker.xaml.cs">
+      <DependentUpon>ColorPicker.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controls\GeoRss.xaml.cs">
+      <DependentUpon>GeoRss.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GeoFind.xaml.cs">
+      <DependentUpon>GeoFind.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GeometryTools\GeometrySettings.xaml.cs">
+      <DependentUpon>GeometrySettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GeoRoute.xaml.cs">
+      <DependentUpon>GeoRoute.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GeoRssPin.cs" />
+    <Compile Include="Controls\GeoServices.xaml.cs">
+      <DependentUpon>GeoServices.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DevPin.cs" />
+    <Compile Include="Controls\MapSourceControl.xaml.cs">
+      <DependentUpon>MapSourceControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Pushpin.cs" />
+    <Compile Include="Page.xaml.cs">
+      <DependentUpon>Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Behaviors\ReverseGeocode.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="Controls\GeoServices.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\AppManifest.xml" />
+    <Content Include="ServiceReferences.ClientConfig" />
+    <Resource Include="Resources\RoadWarrior.png" />
+    <Resource Include="Resources\information.png" />
+    <Resource Include="Resources\smbecker.png" />
+    <Resource Include="Resources\Noob.png" />
+    <Resource Include="Resources\Soul.png" />
+    <Resource Include="Resources\ToolBar\Bounds.png" />
+    <Resource Include="Resources\ToolBar\FitToAize.png" />
+    <Resource Include="Resources\ToolBar\FullScreen.png" />
+    <Resource Include="Resources\ToolBar\Pan.png" />
+    <Resource Include="Resources\GeometryTools\Draw.png" />
+    <Resource Include="Resources\ToolBar\Tools.png" />
+    <Resource Include="Resources\ToolBar\North.png" />
+    <Page Include="Controls\ColourPicker\ColorPicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\GeoRss.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\GeoFind.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\GeometryTools\GeometrySettings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\GeoRoute.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\MapSourceControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Resource Include="Resources\aquaseal.png" />
+    <Resource Include="Resources\GeometryTools\Line.png" />
+    <Resource Include="Resources\GeometryTools\Polygon.png" />
+    <Resource Include="Resources\GeometryTools\Colour.png" />
+    <Resource Include="Resources\GeometryTools\Eraser.png" />
+    <Resource Include="Resources\GeometryTools\Pin.png" />
+    <Resource Include="Resources\PinPoints\burn.png" />
+    <Resource Include="Resources\PinPoints\public.png" />
+    <Resource Include="Resources\PinPoints\splash green.png" />
+    <Resource Include="Resources\PinPoints\star.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Controls\DeepEarth.Client.Controls.DEMap.Common\DeepEarth.Client.Controls.DEMap.Common.csproj">
+      <Project>{BF009F49-7845-4166-A2B5-42562625FC6C}</Project>
+      <Name>DeepEarth.Client.Controls.DEMap.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Controls\DeepEarth.Client.Controls.DEMap.CoordinatePanel\DeepEarth.Client.Controls.DEMap.CoordinatePanel.csproj">
+      <Project>{65AFB157-80DD-4639-92A8-5BCDDFC332B8}</Project>
+      <Name>DeepEarth.Client.Controls.DEMap.CoordinatePanel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Controls\DeepEarth.Client.Controls.DEMap.DateLine\DeepEarth.Client.Controls.DEMap.DateLine.csproj">
+      <Project>{1F2480A7-2D7A-4D02-9A9C-0C32F542ACBF}</Project>
+      <Name>DeepEarth.Client.Controls.DEMap.DateLine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Controls\DeepEarth.Client.Controls.DEMap.NavigationPanel\DeepEarth.Client.Controls.DEMap.NavigationPanel.csproj">
+      <Project>{27484A63-193E-4BEE-8EFE-F544D5BEC9B2}</Project>
+      <Name>DeepEarth.Client.Controls.DEMap.NavigationPanel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Controls\DeepEarth.Client.Controls.DEMap.ScalePanel\DeepEarth.Client.Controls.DEMap.ScalePanel.csproj">
+      <Project>{0D158DB8-DDEE-41F0-86F4-04E68E136758}</Project>
+      <Name>DeepEarth.Client.Controls.DEMap.ScalePanel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Controls\DeepEarth.Client.Controls.Logo\DeepEarth.Client.Controls.Logo.csproj">
+      <Project>{5A5B150C-64E8-4AC2-8655-AD983575EF45}</Project>
+      <Name>DeepEarth.Client.Controls.Logo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Controls\DeepEarth.Client.Controls.ToolPanel\DeepEarth.Client.Controls.ToolPanel.csproj">
+      <Project>{E9FEF980-1614-45B9-8147-6ECFE0E86595}</Project>
+      <Name>DeepEarth.Client.Controls.ToolPanel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DeepEarth.Map\DeepEarth.Client.MapControl.csproj">
+      <Project>{CCDEF3E2-738E-479F-8B97-FDF3DAB326A3}</Project>
+      <Name>DeepEarth.Client.MapControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services\Bing\DeepEarth.Client.Services.Bing.csproj">
+      <Project>{3031F27F-3521-4240-98FE-D1A6BCDA752D}</Project>
+      <Name>DeepEarth.Client.Services.Bing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services\BlueMarble\DeepEarth.Client.Services.BlueMarble.csproj">
+      <Project>{3D65C7DB-74FD-49AA-A0ED-F0C0A204E110}</Project>
+      <Name>DeepEarth.Client.Services.BlueMarble</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services\CloudMade\DeepEarth.Client.Services.CloudMade.csproj">
+      <Project>{23C27BE6-0608-4090-8D28-055C26B2F4EF}</Project>
+      <Name>DeepEarth.Client.Services.CloudMade</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services\GeoRss\DeepEarth.Client.Services.GeoRss.csproj">
+      <Project>{33E1AB90-B61D-4B51-97F2-8D3EB72A4581}</Project>
+      <Name>DeepEarth.Client.Services.GeoRss</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services\GooglePlanets\DeepEarth.Client.Services.GooglePlanets.csproj">
+      <Project>{ADEF4672-BB70-48B7-8E40-AE81E4C8EACE}</Project>
+      <Name>DeepEarth.Client.Services.GooglePlanets</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services\NearMap\DeepEarth.Client.Services.NearMap.csproj">
+      <Project>{9C626F06-4F8B-4386-82A1-8F90A0879A80}</Project>
+      <Name>DeepEarth.Client.Services.NearMap</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services\OAM\DeepEarth.Client.Services.OAM.csproj">
+      <Project>{C6B8E526-B246-4B3E-BBA3-BC879048F2A6}</Project>
+      <Name>DeepEarth.Client.Services.OAM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services\OSM\DeepEarth.Client.Services.OSM.csproj">
+      <Project>{D9761427-E488-42AA-A95F-C35C4412F013}</Project>
+      <Name>DeepEarth.Client.Services.OSM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services\WMS\DeepEarth.Client.Services.WMS.csproj">
+      <Project>{45FA35B1-F2C2-4493-A6B5-A05A04D1C3FA}</Project>
+      <Name>DeepEarth.Client.Services.WMS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services\Yahoo\DeepEarth.Client.Services.Yahoo.csproj">
+      <Project>{77A22486-32B0-4FA4-845F-1C7DB6D3B3EB}</Project>
+      <Name>DeepEarth.Client.Services.Yahoo</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

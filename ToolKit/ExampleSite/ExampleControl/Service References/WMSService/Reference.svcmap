@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="7e546075-ba00-4b7e-9d12-e269f6511be1" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://www.de/Services/WMSService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="WMSService.disco" MetadataType="Disco" ID="6d5a2aa8-cc54-4e97-947c-4ff6454d9ed6" SourceId="1" SourceUrl="http://www.de/Services/WMSService.svc?disco" />
+    <MetadataFile FileName="WMSService.xsd" MetadataType="Schema" ID="3e6f6075-e9de-4ed2-8374-1a50749965e0" SourceId="1" SourceUrl="http://www.de/Services/WMSService.svc?xsd=xsd1" />
+    <MetadataFile FileName="WMSService1.xsd" MetadataType="Schema" ID="90711155-655d-4d86-95ec-bfba0fe12bff" SourceId="1" SourceUrl="http://www.de/Services/WMSService.svc?xsd=xsd0" />
+    <MetadataFile FileName="WMSService.wsdl" MetadataType="Wsdl" ID="7bec644c-8195-42e9-bd58-95f58d99e096" SourceId="1" SourceUrl="http://www.de/Services/WMSService.svc?wsdl" />
+    <MetadataFile FileName="WMSService2.xsd" MetadataType="Schema" ID="ecde5407-7a31-4d64-845a-86ead107c87a" SourceId="1" SourceUrl="http://www.de/Services/WMSService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

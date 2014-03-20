@@ -1,0 +1,10 @@
+﻿<UserControl x:Class="ExampleControlBing.ControlDemos.WelcomeControlExample"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+	xmlns:m="clr-namespace:Microsoft.Maps.MapControl;assembly=Microsoft.Maps.MapControl" 
+	xmlns:w="clr-namespace:DeepEarth.BingMapsToolkit.Client.Controls;assembly=DeepEarth.BingMapsToolkit.Client.Controls.WelcomeControl">
+    <Grid x:Name="LayoutRoot" Background="White">
+		<m:Map x:Name="map" NavigationVisibility="Collapsed" CredentialsProvider="{StaticResource MyCredentials}" />
+		<w:WelcomeControl Name="welcomecontrol" Title="Welcome"/>
+    </Grid>
+</UserControl>

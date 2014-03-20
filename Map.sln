@@ -1,0 +1,164 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{89D661D3-DE2B-423A-A142-9AB31CBA0EB1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeepEarth.Client.MapControl", "Map\DeepEarth.Map\DeepEarth.Client.MapControl.csproj", "{CCDEF3E2-738E-479F-8B97-FDF3DAB326A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeepEarth.Client.Services.Bing", "Map\Services\Bing\DeepEarth.Client.Services.Bing.csproj", "{3031F27F-3521-4240-98FE-D1A6BCDA752D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeepEarth.Client.Services.BlueMarble", "Map\Services\BlueMarble\DeepEarth.Client.Services.BlueMarble.csproj", "{3D65C7DB-74FD-49AA-A0ED-F0C0A204E110}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeepEarth.Client.Services.CloudMade", "Map\Services\CloudMade\DeepEarth.Client.Services.CloudMade.csproj", "{23C27BE6-0608-4090-8D28-055C26B2F4EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeepEarth.Client.Services.GeoRss", "Map\Services\GeoRss\DeepEarth.Client.Services.GeoRss.csproj", "{33E1AB90-B61D-4B51-97F2-8D3EB72A4581}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeepEarth.Client.Services.Google", "Map\Services\Google\DeepEarth.Client.Services.Google.csproj", "{6855F7AB-7D8D-4D1E-AB8C-4EFE97876656}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeepEarth.Client.Services.GooglePlanets", "Map\Services\GooglePlanets\DeepEarth.Client.Services.GooglePlanets.csproj", "{ADEF4672-BB70-48B7-8E40-AE81E4C8EACE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeepEarth.Client.Services.GWC", "Map\Services\GWC\DeepEarth.Client.Services.GWC.csproj", "{CD69033E-43E5-4484-AD58-230181882B38}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeepEarth.Client.Services.OAM", "Map\Services\OAM\DeepEarth.Client.Services.OAM.csproj", "{C6B8E526-B246-4B3E-BBA3-BC879048F2A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeepEarth.Client.Services.OSM", "Map\Services\OSM\DeepEarth.Client.Services.OSM.csproj", "{D9761427-E488-42AA-A95F-C35C4412F013}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeepEarth.Client.Services.WMS", "Map\Services\WMS\DeepEarth.Client.Services.WMS.csproj", "{45FA35B1-F2C2-4493-A6B5-A05A04D1C3FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeepEarth.Client.Services.Yahoo", "Map\Services\Yahoo\DeepEarth.Client.Services.Yahoo.csproj", "{77A22486-32B0-4FA4-845F-1C7DB6D3B3EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeepEarth.Client.Controls.DEMap.CoordinatePanel", "Map\Controls\DeepEarth.Client.Controls.DEMap.CoordinatePanel\DeepEarth.Client.Controls.DEMap.CoordinatePanel.csproj", "{65AFB157-80DD-4639-92A8-5BCDDFC332B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeepEarth.Client.Controls.DEMap.NavigationPanel", "Map\Controls\DeepEarth.Client.Controls.DEMap.NavigationPanel\DeepEarth.Client.Controls.DEMap.NavigationPanel.csproj", "{27484A63-193E-4BEE-8EFE-F544D5BEC9B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeepEarth.Client.Controls.DEMap.ScalePanel", "Map\Controls\DeepEarth.Client.Controls.DEMap.ScalePanel\DeepEarth.Client.Controls.DEMap.ScalePanel.csproj", "{0D158DB8-DDEE-41F0-86F4-04E68E136758}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeepEarth.Client.Controls.DEMap.Common", "Map\Controls\DeepEarth.Client.Controls.DEMap.Common\DeepEarth.Client.Controls.DEMap.Common.csproj", "{BF009F49-7845-4166-A2B5-42562625FC6C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleControl", "Map\ExampleSite\ExampleControl\ExampleControl.csproj", "{93D637C5-1985-42F7-8653-0CD810F1F05E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleControlWeb", "Map\ExampleSite\ExampleControlWeb\ExampleControlWeb.csproj", "{1D2B8DCC-0864-4BB6-8F81-49F15E20EB24}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeepEarth.Client.Controls.Logo", "Map\Controls\DeepEarth.Client.Controls.Logo\DeepEarth.Client.Controls.Logo.csproj", "{5A5B150C-64E8-4AC2-8655-AD983575EF45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeepEarth.Client.Controls.ToolPanel", "Map\Controls\DeepEarth.Client.Controls.ToolPanel\DeepEarth.Client.Controls.ToolPanel.csproj", "{E9FEF980-1614-45B9-8147-6ECFE0E86595}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeepEarth.Client.Services.NearMap", "Map\Services\NearMap\DeepEarth.Client.Services.NearMap.csproj", "{9C626F06-4F8B-4386-82A1-8F90A0879A80}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeepEarth.Client.Controls.DEMap.DateLine", "Map\Controls\DeepEarth.Client.Controls.DEMap.DateLine\DeepEarth.Client.Controls.DEMap.DateLine.csproj", "{1F2480A7-2D7A-4D02-9A9C-0C32F542ACBF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoAPI", "Libraries\GeoAPI\GeoAPI.csproj", "{2B73E9AF-6C58-4C59-8D22-1CB963F9C855}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetTopologySuite", "Libraries\NetTopologySuite\NetTopologySuite.csproj", "{8AB323BC-097E-4222-868E-3A82C1C5C3FA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CCDEF3E2-738E-479F-8B97-FDF3DAB326A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCDEF3E2-738E-479F-8B97-FDF3DAB326A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCDEF3E2-738E-479F-8B97-FDF3DAB326A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCDEF3E2-738E-479F-8B97-FDF3DAB326A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3031F27F-3521-4240-98FE-D1A6BCDA752D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3031F27F-3521-4240-98FE-D1A6BCDA752D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3031F27F-3521-4240-98FE-D1A6BCDA752D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3031F27F-3521-4240-98FE-D1A6BCDA752D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D65C7DB-74FD-49AA-A0ED-F0C0A204E110}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D65C7DB-74FD-49AA-A0ED-F0C0A204E110}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D65C7DB-74FD-49AA-A0ED-F0C0A204E110}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D65C7DB-74FD-49AA-A0ED-F0C0A204E110}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23C27BE6-0608-4090-8D28-055C26B2F4EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23C27BE6-0608-4090-8D28-055C26B2F4EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23C27BE6-0608-4090-8D28-055C26B2F4EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23C27BE6-0608-4090-8D28-055C26B2F4EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33E1AB90-B61D-4B51-97F2-8D3EB72A4581}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33E1AB90-B61D-4B51-97F2-8D3EB72A4581}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33E1AB90-B61D-4B51-97F2-8D3EB72A4581}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33E1AB90-B61D-4B51-97F2-8D3EB72A4581}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6855F7AB-7D8D-4D1E-AB8C-4EFE97876656}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6855F7AB-7D8D-4D1E-AB8C-4EFE97876656}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6855F7AB-7D8D-4D1E-AB8C-4EFE97876656}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6855F7AB-7D8D-4D1E-AB8C-4EFE97876656}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADEF4672-BB70-48B7-8E40-AE81E4C8EACE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADEF4672-BB70-48B7-8E40-AE81E4C8EACE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADEF4672-BB70-48B7-8E40-AE81E4C8EACE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADEF4672-BB70-48B7-8E40-AE81E4C8EACE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD69033E-43E5-4484-AD58-230181882B38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD69033E-43E5-4484-AD58-230181882B38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD69033E-43E5-4484-AD58-230181882B38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD69033E-43E5-4484-AD58-230181882B38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6B8E526-B246-4B3E-BBA3-BC879048F2A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6B8E526-B246-4B3E-BBA3-BC879048F2A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6B8E526-B246-4B3E-BBA3-BC879048F2A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6B8E526-B246-4B3E-BBA3-BC879048F2A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9761427-E488-42AA-A95F-C35C4412F013}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9761427-E488-42AA-A95F-C35C4412F013}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9761427-E488-42AA-A95F-C35C4412F013}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9761427-E488-42AA-A95F-C35C4412F013}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45FA35B1-F2C2-4493-A6B5-A05A04D1C3FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45FA35B1-F2C2-4493-A6B5-A05A04D1C3FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45FA35B1-F2C2-4493-A6B5-A05A04D1C3FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45FA35B1-F2C2-4493-A6B5-A05A04D1C3FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77A22486-32B0-4FA4-845F-1C7DB6D3B3EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77A22486-32B0-4FA4-845F-1C7DB6D3B3EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77A22486-32B0-4FA4-845F-1C7DB6D3B3EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77A22486-32B0-4FA4-845F-1C7DB6D3B3EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65AFB157-80DD-4639-92A8-5BCDDFC332B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65AFB157-80DD-4639-92A8-5BCDDFC332B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65AFB157-80DD-4639-92A8-5BCDDFC332B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65AFB157-80DD-4639-92A8-5BCDDFC332B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27484A63-193E-4BEE-8EFE-F544D5BEC9B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27484A63-193E-4BEE-8EFE-F544D5BEC9B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27484A63-193E-4BEE-8EFE-F544D5BEC9B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27484A63-193E-4BEE-8EFE-F544D5BEC9B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D158DB8-DDEE-41F0-86F4-04E68E136758}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D158DB8-DDEE-41F0-86F4-04E68E136758}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D158DB8-DDEE-41F0-86F4-04E68E136758}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D158DB8-DDEE-41F0-86F4-04E68E136758}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF009F49-7845-4166-A2B5-42562625FC6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF009F49-7845-4166-A2B5-42562625FC6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF009F49-7845-4166-A2B5-42562625FC6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF009F49-7845-4166-A2B5-42562625FC6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93D637C5-1985-42F7-8653-0CD810F1F05E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93D637C5-1985-42F7-8653-0CD810F1F05E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93D637C5-1985-42F7-8653-0CD810F1F05E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93D637C5-1985-42F7-8653-0CD810F1F05E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D2B8DCC-0864-4BB6-8F81-49F15E20EB24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D2B8DCC-0864-4BB6-8F81-49F15E20EB24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D2B8DCC-0864-4BB6-8F81-49F15E20EB24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D2B8DCC-0864-4BB6-8F81-49F15E20EB24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A5B150C-64E8-4AC2-8655-AD983575EF45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A5B150C-64E8-4AC2-8655-AD983575EF45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A5B150C-64E8-4AC2-8655-AD983575EF45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A5B150C-64E8-4AC2-8655-AD983575EF45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9FEF980-1614-45B9-8147-6ECFE0E86595}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9FEF980-1614-45B9-8147-6ECFE0E86595}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9FEF980-1614-45B9-8147-6ECFE0E86595}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9FEF980-1614-45B9-8147-6ECFE0E86595}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C626F06-4F8B-4386-82A1-8F90A0879A80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C626F06-4F8B-4386-82A1-8F90A0879A80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C626F06-4F8B-4386-82A1-8F90A0879A80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C626F06-4F8B-4386-82A1-8F90A0879A80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F2480A7-2D7A-4D02-9A9C-0C32F542ACBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F2480A7-2D7A-4D02-9A9C-0C32F542ACBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F2480A7-2D7A-4D02-9A9C-0C32F542ACBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F2480A7-2D7A-4D02-9A9C-0C32F542ACBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B73E9AF-6C58-4C59-8D22-1CB963F9C855}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B73E9AF-6C58-4C59-8D22-1CB963F9C855}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B73E9AF-6C58-4C59-8D22-1CB963F9C855}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B73E9AF-6C58-4C59-8D22-1CB963F9C855}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AB323BC-097E-4222-868E-3A82C1C5C3FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AB323BC-097E-4222-868E-3A82C1C5C3FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AB323BC-097E-4222-868E-3A82C1C5C3FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AB323BC-097E-4222-868E-3A82C1C5C3FA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2B73E9AF-6C58-4C59-8D22-1CB963F9C855} = {89D661D3-DE2B-423A-A142-9AB31CBA0EB1}
+		{8AB323BC-097E-4222-868E-3A82C1C5C3FA} = {89D661D3-DE2B-423A-A142-9AB31CBA0EB1}
+	EndGlobalSection
+EndGlobal

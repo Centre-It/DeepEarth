@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="ExampleControlBing.ControlDemos.ToolPanelExample"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:t="clr-namespace:DeepEarth.BingMapsToolkit.Client.Controls;assembly=DeepEarth.BingMapsToolkit.Client.Controls.ToolPanel">
+    <Grid x:Name="LayoutRoot">
+        <t:ToolPanel Name="toolpanel" HorizontalAlignment="Center" VerticalAlignment="Center" >
+            <t:ToolPanel.Content>
+                <TextBlock Foreground="White" Text="Content, click for options" />
+            </t:ToolPanel.Content>
+            <t:ToolPanel.Options>
+                <TextBlock Foreground="White" Text="Options" />
+            </t:ToolPanel.Options>
+        </t:ToolPanel>
+    </Grid>
+</UserControl>

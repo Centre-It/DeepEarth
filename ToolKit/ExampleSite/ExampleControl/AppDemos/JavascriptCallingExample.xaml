@@ -1,0 +1,10 @@
+﻿<UserControl x:Class="ExampleControlBing.AppDemos.JavascriptCallingExample"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+	xmlns:m="clr-namespace:Microsoft.Maps.MapControl;assembly=Microsoft.Maps.MapControl" 
+	xmlns:a="clr-namespace:DeepEarth.BingMapsToolkit.Client.Controls;assembly=DeepEarth.BingMapsToolkit.Client.Controls.Automation">
+    <Grid x:Name="LayoutRoot" Background="White">
+		<m:Map  x:Name="map" CredentialsProvider="{StaticResource MyCredentials}" />
+		<a:Automation Name="automation" MapName="map" />
+	</Grid>
+</UserControl>

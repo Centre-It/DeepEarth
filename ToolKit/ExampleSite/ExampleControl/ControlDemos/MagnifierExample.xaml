@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="ExampleControlBing.ControlDemos.MagnifierExample"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:m="clr-namespace:Microsoft.Maps.MapControl;assembly=Microsoft.Maps.MapControl" 
+    xmlns:mag="clr-namespace:DeepEarth.BingMapsToolkit.Client.Controls;assembly=DeepEarth.BingMapsToolkit.Client.Controls.Magnifier">
+    <Grid x:Name="LayoutRoot">
+        <m:Map x:Name="map" CredentialsProvider="{StaticResource MyCredentials}" />
+        <mag:Magnifier Name="magnifier" 
+                       MapName="map" 
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Center" 
+                       Margin="0,0,0,0" 
+                       MagnifyLevel="1.5"/>
+    </Grid>
+</UserControl>

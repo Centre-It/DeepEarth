@@ -1,0 +1,23 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ToolPanel="clr-namespace:DeepEarth.Client.Controls;assembly=DeepEarth.Client.Controls.ToolPanel"
+    xmlns:DEMapControl="clr-namespace:DeepEarth.Client.Controls.DEMap">
+
+    <Style TargetType="DEMapControl:ScalePanel">
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="DEMapControl:ScalePanel">
+                    <ToolPanel:ToolPanel>
+                        <ToolPanel:ToolPanel.Content>
+                            <TextBlock x:Name="PART_scaleTextBlock" HorizontalAlignment="Right" Margin="0,0,7,0" TextAlignment="Right" Foreground="{TemplateBinding Foreground}" FontSize="{TemplateBinding FontSize}"/>
+                        </ToolPanel:ToolPanel.Content>
+                    </ToolPanel:ToolPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
+

@@ -1,0 +1,599 @@
+﻿<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4C8F8CBE-7525-42C2-AFB5-0CF38B9579AA}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ExampleControlBing</RootNamespace>
+    <AssemblyName>ExampleControlBing</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>
+    </SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>ExampleControlBing.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>ExampleControlBing.App</SilverlightAppEntry>
+    <TestPageFileName>TestPage.html</TestPageFileName>
+    <CreateTestPage>true</CreateTestPage>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>false</ThrowErrorsInValidation>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GeoAPI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libraries\GeoAPI\Bin\Debug\GeoAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Maps.MapControl, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libraries\MicrosoftMapsMapControl\Microsoft.Maps.MapControl.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Maps.MapControl.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libraries\MicrosoftMapsMapControl\Microsoft.Maps.MapControl.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libraries\NetTopologySuite\Bin\Debug\NetTopologySuite.dll</HintPath>
+    </Reference>
+    <Reference Include="ProjNet.Silverlight, Version=1.2.3432.30696, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libraries\ProjNetSilverlight\ProjNet.Silverlight.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows" />
+    <Reference Include="mscorlib" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Controls, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Input.Toolkit, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libraries\SilverlightToolkit\System.Windows.Controls.Input.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Layout.Toolkit, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libraries\SilverlightToolkit\System.Windows.Controls.Layout.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Windows.Browser" />
+    <Reference Include="System.Xml.Linq, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppDemos\FloatingPanelsExample.xaml.cs">
+      <DependentUpon>FloatingPanelsExample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppDemos\JavascriptCallingExample.xaml.cs">
+      <DependentUpon>JavascriptCallingExample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppDemos\KMLExample.xaml.cs">
+      <DependentUpon>KMLExample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppDemos\StoreLocatorExample.xaml.cs">
+      <DependentUpon>StoreLocatorExample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlDemos\AutomationExample.xaml.cs">
+      <DependentUpon>AutomationExample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlDemos\ColorPickerExample.xaml.cs">
+      <DependentUpon>ColorPickerExample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlDemos\CoordinatePanelExample.xaml.cs">
+      <DependentUpon>CoordinatePanelExample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlDemos\DefaultControlsStyleExample.xaml.cs">
+      <DependentUpon>DefaultControlsStyleExample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlDemos\FloatingPanelExample.xaml.cs">
+      <DependentUpon>FloatingPanelExample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlDemos\LaunchPanelExample.xaml.cs">
+      <DependentUpon>LaunchPanelExample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlDemos\LayerPanelAccordionExample.xaml.cs">
+      <DependentUpon>LayerPanelAccordionExample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlDemos\DateRangeSliderExample.xaml.cs">
+      <DependentUpon>DateRangeSliderExample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlDemos\DigitizerExample.xaml.cs">
+      <DependentUpon>DigitizerExample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlDemos\DirectionPanelExample.xaml.cs">
+      <DependentUpon>DirectionPanelExample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlDemos\FindExample.xaml.cs">
+      <DependentUpon>FindExample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlDemos\GeometryStylePickerExample.xaml.cs">
+      <DependentUpon>GeometryStylePickerExample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlDemos\ImageSpriteExample.xaml.cs">
+      <DependentUpon>ImageSpriteExample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlDemos\LayerPanelTreeViewExample.xaml.cs">
+      <DependentUpon>LayerPanelTreeViewExample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlDemos\LogoExample.xaml.cs">
+      <DependentUpon>LogoExample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlDemos\MagnifierExample.xaml.cs">
+      <DependentUpon>MagnifierExample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlDemos\MapRobotExample.xaml.cs">
+      <DependentUpon>MapRobotExample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlDemos\MeasureToolsExample.xaml.cs">
+      <DependentUpon>MeasureToolsExample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlDemos\MiniMapExample.xaml.cs">
+      <DependentUpon>MiniMapExample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlDemos\NavigationPanelExample.xaml.cs">
+      <DependentUpon>NavigationPanelExample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlDemos\PersistedStateExample.xaml.cs">
+      <DependentUpon>PersistedStateExample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlDemos\ScalePanelExample.xaml.cs">
+      <DependentUpon>ScalePanelExample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlDemos\SnapshotExample.xaml.cs">
+      <DependentUpon>SnapshotExample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlDemos\StatusPanelExample.xaml.cs">
+      <DependentUpon>StatusPanelExample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlDemos\ToolPanelExample.xaml.cs">
+      <DependentUpon>ToolPanelExample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlDemos\WelcomeControlExample.xaml.cs">
+      <DependentUpon>WelcomeControlExample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlDemos\WMSInfoToolExample.xaml.cs">
+      <DependentUpon>WMSInfoToolExample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataDemos\BalloonXamlExample.xaml.cs">
+      <DependentUpon>BalloonXamlExample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataDemos\ClusteredPointsExample.xaml.cs">
+      <DependentUpon>ClusteredPointsExample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataDemos\ComplexPolygonsExample.xaml.cs">
+      <DependentUpon>ComplexPolygonsExample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataDemos\SinglePoint.xaml.cs">
+      <DependentUpon>SinglePoint.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataDemos\TemporalDataExample.xaml.cs">
+      <DependentUpon>TemporalDataExample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Example.cs" />
+    <Compile Include="Page.xaml.cs">
+      <DependentUpon>Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\WMSService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="AppDemos\FloatingPanelsExample.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
+    <Page Include="AppDemos\JavascriptCallingExample.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
+    <Page Include="AppDemos\KMLExample.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
+    <Page Include="AppDemos\StoreLocatorExample.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
+    <Page Include="ControlDemos\AutomationExample.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
+    <Page Include="ControlDemos\ColorPickerExample.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
+    <Page Include="ControlDemos\CoordinatePanelExample.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
+    <Page Include="ControlDemos\DefaultControlsStyleExample.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
+    <Page Include="ControlDemos\FloatingPanelExample.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
+    <Page Include="ControlDemos\LaunchPanelExample.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
+    <Page Include="ControlDemos\LayerPanelAccordionExample.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ControlDemos\DateRangeSliderExample.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
+    <Page Include="ControlDemos\DigitizerExample.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
+    <Page Include="ControlDemos\DirectionPanelExample.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
+    <Page Include="ControlDemos\FindExample.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
+    <Page Include="ControlDemos\GeometryStylePickerExample.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
+    <Page Include="ControlDemos\ImageSpriteExample.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
+    <Page Include="ControlDemos\LayerPanelTreeViewExample.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
+    <Page Include="ControlDemos\LogoExample.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
+    <Page Include="ControlDemos\MagnifierExample.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
+    <Page Include="ControlDemos\MapRobotExample.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
+    <Page Include="ControlDemos\MeasureToolsExample.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
+    <Page Include="ControlDemos\MiniMapExample.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
+    <Page Include="ControlDemos\NavigationPanelExample.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
+    <Page Include="ControlDemos\PersistedStateExample.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
+    <Page Include="ControlDemos\ScalePanelExample.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
+    <Page Include="ControlDemos\SnapshotExample.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ControlDemos\StatusPanelExample.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
+    <Page Include="ControlDemos\ToolPanelExample.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
+    <Page Include="ControlDemos\WelcomeControlExample.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
+    <Page Include="ControlDemos\WMSInfoToolExample.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
+    <Page Include="DataDemos\BalloonXamlExample.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
+    <Page Include="DataDemos\ClusteredPointsExample.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DataDemos\ComplexPolygonsExample.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DataDemos\SinglePoint.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
+    <Page Include="DataDemos\TemporalDataExample.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="AppDemos\KMLExample.kml" />
+    <None Include="Properties\AppManifest.xml" />
+    <Resource Include="DataDemos\SinglePoint.txt" />
+    <None Include="Properties\DataSources\WMSFeature.datasource" />
+    <None Include="Service References\WMSService\WMSService.disco" />
+    <None Include="Service References\WMSService\WMSService.wsdl" />
+    <None Include="Service References\WMSService\WMSService.xsd" />
+    <None Include="Service References\WMSService\WMSService1.xsd" />
+    <None Include="Service References\WMSService\WMSService2.xsd" />
+    <None Include="Service References\WMSService\configuration91.svcinfo" />
+    <None Include="Service References\WMSService\configuration.svcinfo" />
+    <None Include="Service References\WMSService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Resource Include="DataDemos\BalloonXamlExample.txt" />
+    <Resource Include="Images\Flag_of_England.png" />
+    <Resource Include="Images\Flag_of_Russia.png" />
+    <Resource Include="Images\Flag_of_Australia.png" />
+    <Resource Include="ControlDemos\SnapshotExample.txt" />
+    <Content Include="ServiceReferences.ClientConfig" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Client\DeepEarth.BingMapsToolkit.Client.Common.Converters\Client.Common.Converters.csproj">
+      <Project>{8A85D8B2-E7B8-49B1-920B-3E99341EEF71}</Project>
+      <Name>Client.Common.Converters</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Client\DeepEarth.BingMapsToolkit.Client.Controls.Automation\Client.Controls.Automation.csproj">
+      <Project>{1FE78FF1-7FAD-4AC5-995A-65F8D33D110F}</Project>
+      <Name>Client.Controls.Automation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Client\DeepEarth.BingMapsToolkit.Client.Controls.ColorPicker\Client.Controls.ColorPicker.csproj">
+      <Project>{4AD6F4B0-5A97-4114-86B9-D9A2C18A9D71}</Project>
+      <Name>Client.Controls.ColorPicker</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Client\DeepEarth.BingMapsToolkit.Client.Controls.CoordinatePanel\Client.Controls.CoordinatePanel.csproj">
+      <Project>{BA833458-50B3-4EBE-A996-4F9F61BBB84F}</Project>
+      <Name>Client.Controls.CoordinatePanel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Client\DeepEarth.BingMapsToolkit.Client.Controls.DateRangeSlider\Client.Controls.DateRangeSlider.csproj">
+      <Project>{17AF2168-1997-4955-8727-5922DC84102B}</Project>
+      <Name>Client.Controls.DateRangeSlider</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Client\DeepEarth.BingMapsToolkit.Client.Controls.Digitizer\Client.Controls.Digitizer.csproj">
+      <Project>{CC56D45B-AB3A-4122-9FE1-95D79A22A8BC}</Project>
+      <Name>Client.Controls.Digitizer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Client\DeepEarth.BingMapsToolkit.Client.Controls.DirectionPanel\Client.Controls.DirectionPanel.csproj">
+      <Project>{042643F3-42E2-4A67-8C10-974A3F7707A2}</Project>
+      <Name>Client.Controls.DirectionPanel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Client\DeepEarth.BingMapsToolkit.Client.Controls.Find\Client.Controls.Find.csproj">
+      <Project>{2A14EF46-DD37-43A4-A11B-6EA5B69E683A}</Project>
+      <Name>Client.Controls.Find</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Client\DeepEarth.BingMapsToolkit.Client.Controls.FloatingPanel\Client.Controls.FloatingPanel.csproj">
+      <Project>{22B6EA71-A8C1-4F6E-A77D-7B72D6B35BA3}</Project>
+      <Name>Client.Controls.FloatingPanel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Client\DeepEarth.BingMapsToolkit.Client.Controls.GeometryStylePicker\Client.Controls.GeometryStylePicker.csproj">
+      <Project>{FBF83FF1-7A13-4583-8C04-A1C6D706B1DF}</Project>
+      <Name>Client.Controls.GeometryStylePicker</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Client\DeepEarth.BingMapsToolkit.Client.Controls.ImageSprite\Client.Controls.ImageSprite.csproj">
+      <Project>{14A4F315-1B87-486D-AED0-D4DD038A5466}</Project>
+      <Name>Client.Controls.ImageSprite</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Client\DeepEarth.BingMapsToolkit.Client.Controls.LaunchPanel\Client.Controls.LaunchPanel.csproj">
+      <Project>{63018595-2273-4C0C-AC1D-DA34FCA94C40}</Project>
+      <Name>Client.Controls.LaunchPanel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Client\DeepEarth.BingMapsToolkit.Client.Controls.LayerPanel\Client.Controls.LayerPanel.csproj">
+      <Project>{AA067726-2553-4182-8AC5-19370DABE489}</Project>
+      <Name>Client.Controls.LayerPanel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Client\DeepEarth.BingMapsToolkit.Client.Controls.Logo\Client.Controls.Logo.csproj">
+      <Project>{5A5B150C-64E8-4AC2-8655-AD983575EF45}</Project>
+      <Name>Client.Controls.Logo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Client\DeepEarth.BingMapsToolkit.Client.Controls.Magnifier\Client.Controls.Magnifier.csproj">
+      <Project>{F180A530-95F3-4821-9EA0-803E37DED852}</Project>
+      <Name>Client.Controls.Magnifier</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Client\DeepEarth.BingMapsToolkit.Client.Controls.MapRobot\Client.Controls.MapRobot.csproj">
+      <Project>{7BA52908-85AC-445D-A675-00108FBC34C0}</Project>
+      <Name>Client.Controls.MapRobot</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Client\DeepEarth.BingMapsToolkit.Client.Controls.MeasureTools\Client.Controls.MeasureTools.csproj">
+      <Project>{81F42A6A-93EC-41A4-86EC-1BA317287A4C}</Project>
+      <Name>Client.Controls.MeasureTools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Client\DeepEarth.BingMapsToolkit.Client.Controls.MiniMap\Client.Controls.MiniMap.csproj">
+      <Project>{D51369C0-D115-44D7-AC03-07DE59E3F87E}</Project>
+      <Name>Client.Controls.MiniMap</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Client\DeepEarth.BingMapsToolkit.Client.Controls.NavigationPanel\Client.Controls.NavigationPanel.csproj">
+      <Project>{10553305-5EC8-43A8-A9AD-473FB5D71139}</Project>
+      <Name>Client.Controls.NavigationPanel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Client\DeepEarth.BingMapsToolkit.Client.Controls.PersistedState\Client.Controls.PersistedState.csproj">
+      <Project>{42A069ED-944B-4211-A275-F3D77AF5AB46}</Project>
+      <Name>Client.Controls.PersistedState</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Client\DeepEarth.BingMapsToolkit.Client.Controls.ScalePanel\Client.Controls.ScalePanel.csproj">
+      <Project>{6CBE26F1-6A10-44F0-A3C3-8118C67761B7}</Project>
+      <Name>Client.Controls.ScalePanel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Client\DeepEarth.BingMapsToolkit.Client.Controls.Snapshot\Client.Controls.Snapshot.csproj">
+      <Project>{824256AD-5138-45CE-9691-44F5BF22A8AA}</Project>
+      <Name>Client.Controls.Snapshot</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Client\DeepEarth.BingMapsToolkit.Client.Controls.StatusPanel\Client.Controls.StatusPanel.csproj">
+      <Project>{11221268-C7C8-476F-B3D6-66724DEE1BF1}</Project>
+      <Name>Client.Controls.StatusPanel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Client\DeepEarth.BingMapsToolkit.Client.Controls.ToolPanel\Client.Controls.ToolPanel.csproj">
+      <Project>{E9FEF980-1614-45B9-8147-6ECFE0E86595}</Project>
+      <Name>Client.Controls.ToolPanel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Client\DeepEarth.BingMapsToolkit.Client.Common.Entities\Client.Common.Entities.csproj">
+      <Project>{E5D8A4AE-B56D-45D8-A445-D2726245A8B7}</Project>
+      <Name>Client.Common.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Client\DeepEarth.BingMapsToolkit.Client.Common\Client.Common.csproj">
+      <Project>{E85F0B39-2681-4F0C-8299-54B3187681C7}</Project>
+      <Name>Client.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Client\DeepEarth.BingMapsToolkit.Client.Controls.WelcomeControl\Client.Controls.WelcomeControl.csproj">
+      <Project>{C105D1B2-A0FD-4DAC-80C2-763499539966}</Project>
+      <Name>Client.Controls.WelcomeControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Client\DeepEarth.BingMapsToolkit.Client.Controls.WMSInfoTool\Client.Controls.WMSInfoTool.csproj">
+      <Project>{38F7B09C-15AA-418F-8DB9-26365BA4724E}</Project>
+      <Name>Client.Controls.WMSInfoTool</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Client\DeepEarth.BingMapsToolkit.Client.MapGeometry\Client.MapGeometry.csproj">
+      <Project>{6C229794-540B-4A0F-8C4D-2A2C237E743C}</Project>
+      <Name>Client.MapGeometry</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ControlDemos\LogoExample.txt" />
+    <Resource Include="ControlDemos\MiniMapExample.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DeepEarth.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ControlDemos\ColorPickerExample.txt" />
+    <Resource Include="ControlDemos\CoordinatePanelExample.txt" />
+    <Resource Include="ControlDemos\DateRangeSliderExample.txt" />
+    <Resource Include="ControlDemos\DigitizerExample.txt" />
+    <Resource Include="ControlDemos\DirectionPanelExample.txt" />
+    <Resource Include="ControlDemos\FindExample.txt" />
+    <Resource Include="ControlDemos\GeometryStylePickerExample.txt" />
+    <Resource Include="ControlDemos\ImageSpriteExample.txt" />
+    <Resource Include="ControlDemos\LayerPanelTreeViewExample.txt" />
+    <Resource Include="ControlDemos\MagnifierExample.txt" />
+    <Resource Include="ControlDemos\MeasureToolsExample.txt" />
+    <Resource Include="ControlDemos\NavigationPanelExample.txt" />
+    <Resource Include="ControlDemos\PersistedStateExample.txt" />
+    <Resource Include="ControlDemos\ScalePanelExample.txt" />
+    <Resource Include="ControlDemos\StatusPanelExample.txt" />
+    <Resource Include="ControlDemos\ToolPanelExample.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="AppDemos\FloatingPanelsExample.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ControlDemos\AutomationExample.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="AppDemos\JavascriptCallingExample.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DataDemos\ClusteredPointsExample.txt" />
+    <Resource Include="DataDemos\ComplexPolygonsExample.txt" />
+    <Resource Include="DataDemos\TemporalDataExample.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="AppDemos\StoreLocatorExample.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ControlDemos\LayerPanelAccordionExample.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ControlDemos\MapRobotExample.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ControlDemos\WelcomeControlExample.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ControlDemos\DefaultControlsStyleExample.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ControlDemos\FloatingPanelExample.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ControlDemos\LaunchPanelExample.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="AppDemos\KMLExample.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ControlDemos\WMSInfoToolExample.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\WMSService\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\v3.0\Microsoft.Silverlight.CSharp.targets" Condition="" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

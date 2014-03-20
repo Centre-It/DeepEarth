@@ -1,0 +1,10 @@
+﻿<UserControl x:Class="ExampleControlBing.ControlDemos.DigitizerExample"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:m="clr-namespace:Microsoft.Maps.MapControl;assembly=Microsoft.Maps.MapControl" 
+    xmlns:d="clr-namespace:DeepEarth.BingMapsToolkit.Client.Controls;assembly=DeepEarth.BingMapsToolkit.Client.Controls.Digitizer">
+    <Grid x:Name="LayoutRoot">
+        <m:Map x:Name="map" CredentialsProvider="{StaticResource MyCredentials}" />
+        <d:Digitizer Name="digitizer" MapName="map" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="4,4,4,4"/>
+    </Grid>
+</UserControl>

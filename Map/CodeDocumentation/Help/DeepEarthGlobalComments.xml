@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<doc>
+  <assembly>
+    <name>DeepEarth</name>
+  </assembly>
+  <members>
+    <member name="R:DeepEarth">
+      <summary>
+        Shared project summary comments go in here.
+      </summary>
+    </member>
+    <member name="N:DeepEarth">
+      <summary>
+        DeepEarth namespace is the root namespace for the project.  Immediate child objects are singular in nature and have project wide scope.
+      </summary>
+    </member>
+    <member name="N:DeepEarth.Controls">
+      <summary>
+        Namespace for common user interface controls.
+      </summary>
+    </member>
+    
+    
+    <member name="N:DeepEarth.Events">
+          <summary>
+            Namespace for common map related events.
+          </summary>
+    </member>
+    
+    <member name="N:DeepEarth.Geometry">
+          <summary>
+            Namespace for base mapping geometry.
+          </summary>
+    </member>
+    
+    <member name="N:DeepEarth.Layers">
+          <summary>
+            Namespace for classes which are layers or support layer functionality.
+          </summary>
+    </member>
+    
+  </members>
+</doc>

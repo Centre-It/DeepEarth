@@ -1,0 +1,600 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vsm="clr-namespace:System.Windows;assembly=System.Windows"
+    xmlns:DEMapControl="clr-namespace:DeepEarth.Client.Controls.DEMap">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/DeepEarth.Client.Controls.DEMap.Common;component/Resources/CommonStyles.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+    
+    <Style TargetType="DEMapControl:NavigationPanel">
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Template">
+            <Setter.Value>
+
+                <ControlTemplate TargetType="DEMapControl:NavigationPanel">
+                    <Canvas x:Name="LayoutRoot" Opacity="0.82">
+                        <Canvas.Resources>
+
+                            <!-- Template Arrow Button-->
+                            <ControlTemplate x:Key="arrowButton" TargetType="RepeatButton">
+                                <Grid x:Name="Root">
+                                    <vsm:VisualStateManager.VisualStateGroups>
+                                        <vsm:VisualStateGroup x:Name="FocusStates">
+                                            <vsm:VisualState x:Name="Unfocused"/>
+                                            <vsm:VisualState x:Name="Focused"/>
+                                        </vsm:VisualStateGroup>
+                                        <vsm:VisualStateGroup x:Name="CommonStates">
+                                            <vsm:VisualStateGroup.Transitions>
+                                                <vsm:VisualTransition GeneratedDuration="00:00:00.1000000"/>
+                                            </vsm:VisualStateGroup.Transitions>
+                                            <vsm:VisualState x:Name="MouseOver">
+                                                <Storyboard>
+                                                    <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="contentPresenter" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                                        <SplineDoubleKeyFrame KeyTime="00:00:00" Value="1"/>
+                                                    </DoubleAnimationUsingKeyFrames>
+                                                    <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="contentPresenter" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+                                                        <SplineDoubleKeyFrame KeyTime="00:00:00" Value="1.1"/>
+                                                    </DoubleAnimationUsingKeyFrames>
+                                                    <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="contentPresenter" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+                                                        <SplineDoubleKeyFrame KeyTime="00:00:00" Value="1.1"/>
+                                                    </DoubleAnimationUsingKeyFrames>
+                                                </Storyboard>
+                                            </vsm:VisualState>
+                                            <vsm:VisualState x:Name="Pressed">
+                                                <Storyboard>
+                                                    <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="contentPresenter" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+                                                        <SplineDoubleKeyFrame KeyTime="00:00:00" Value="0.9"/>
+                                                    </DoubleAnimationUsingKeyFrames>
+                                                    <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="contentPresenter" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+                                                        <SplineDoubleKeyFrame KeyTime="00:00:00" Value="0.9"/>
+                                                    </DoubleAnimationUsingKeyFrames>
+                                                </Storyboard>
+                                            </vsm:VisualState>
+                                            <vsm:VisualState x:Name="Disabled"/>
+                                            <vsm:VisualState x:Name="Normal"/>
+                                        </vsm:VisualStateGroup>
+                                    </vsm:VisualStateManager.VisualStateGroups>
+
+                                    <ContentPresenter Margin="0,0,0,0" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" Opacity="0.65" x:Name="contentPresenter" RenderTransformOrigin="0.5,0.5">
+                                        <ContentPresenter.RenderTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform/>
+                                                <SkewTransform/>
+                                                <RotateTransform/>
+                                                <TranslateTransform/>
+                                            </TransformGroup>
+                                        </ContentPresenter.RenderTransform>
+                                    </ContentPresenter>
+
+                                </Grid>
+                            </ControlTemplate>
+
+                            <!-- Style SpinButton-->
+                            <Style x:Key="spinButtonTemplate" TargetType="Button">
+                                <Setter Property="IsEnabled" Value="true"/>
+                                <Setter Property="IsTabStop" Value="true"/>
+                                <Setter Property="Background" Value="#FF003255"/>
+                                <Setter Property="Foreground" Value="#FF313131"/>
+                                <Setter Property="MinWidth" Value="5"/>
+                                <Setter Property="MinHeight" Value="5"/>
+                                <Setter Property="Margin" Value="0"/>
+                                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                <Setter Property="Cursor" Value="Arrow"/>
+
+                                <Setter Property="FontSize" Value="11"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Grid>
+                                                <Grid.Resources>
+                                                    <Color x:Key="LinearBevelLightStartColor">#FCFFFFFF</Color>
+                                                    <Color x:Key="LinearBevelLightEndColor">#F4FFFFFF</Color>
+                                                    <Color x:Key="LinearBevelDarkStartColor">#E0FFFFFF</Color>
+                                                    <Color x:Key="LinearBevelDarkEndColor">#B2FFFFFF</Color>
+                                                    <Color x:Key="MouseOverLinearBevelDarkEndColor">#7FFFFFFF</Color>
+                                                    <Color x:Key="HoverLinearBevelLightStartColor">#FCFFFFFF</Color>
+                                                    <Color x:Key="HoverLinearBevelLightEndColor">#EAFFFFFF</Color>
+                                                    <Color x:Key="HoverLinearBevelDarkStartColor">#D8FFFFFF</Color>
+                                                    <Color x:Key="HoverLinearBevelDarkEndColor">#4CFFFFFF</Color>
+                                                    <Color x:Key="CurvedBevelFillStartColor">#B3FFFFFF</Color>
+                                                    <Color x:Key="CurvedBevelFillEndColor">#3CFFFFFF</Color>
+                                                    <SolidColorBrush x:Key="BorderBrush" Color="#FF000000"/>
+                                                    <SolidColorBrush x:Key="AccentBrush" Color="#FFFFFFFF"/>
+                                                    <SolidColorBrush x:Key="DisabledBrush" Color="#A5FFFFFF"/>
+                                                    <LinearGradientBrush x:Key="FocusedStrokeBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+                                                        <GradientStop Color="#B2FFFFFF" Offset="0"/>
+                                                        <GradientStop Color="#51FFFFFF" Offset="1"/>
+                                                        <GradientStop Color="#66FFFFFF" Offset="0.325"/>
+                                                        <GradientStop Color="#1EFFFFFF" Offset="0.325"/>
+                                                    </LinearGradientBrush>
+                                                </Grid.Resources>
+                                                <vsm:VisualStateManager.VisualStateGroups>
+                                                    <vsm:VisualStateGroup x:Name="CommonStates">
+                                                        <vsm:VisualStateGroup.Transitions>
+                                                            <vsm:VisualTransition GeneratedDuration="0:0:0.2" To="MouseOver"/>
+                                                            <vsm:VisualTransition GeneratedDuration="0:0:0.1" To="Pressed"/>
+                                                        </vsm:VisualStateGroup.Transitions>
+                                                        <vsm:VisualState x:Name="Normal"/>
+                                                        <vsm:VisualState x:Name="MouseOver">
+                                                            <Storyboard/>
+                                                        </vsm:VisualState>
+                                                        <vsm:VisualState x:Name="Pressed">
+                                                            <Storyboard/>
+                                                        </vsm:VisualState>
+                                                        <vsm:VisualState x:Name="Disabled">
+                                                            <Storyboard/>
+                                                        </vsm:VisualState>
+                                                    </vsm:VisualStateGroup>
+                                                    <vsm:VisualStateGroup x:Name="FocusStates">
+                                                        <vsm:VisualState x:Name="Focused">
+                                                            <Storyboard/>
+                                                        </vsm:VisualState>
+                                                        <vsm:VisualState x:Name="Unfocused">
+                                                            <Storyboard/>
+                                                        </vsm:VisualState>
+                                                    </vsm:VisualStateGroup>
+                                                </vsm:VisualStateManager.VisualStateGroups>
+
+                                                <ContentPresenter Margin="2,2,2,2" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" />
+                                            </Grid>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+
+                            <!-- Template Zoom Button-->
+                            <ControlTemplate x:Key="zoomButtonTemplate" TargetType="RepeatButton">
+                                <Grid RenderTransformOrigin="0.5,0.5" x:Name="Root">
+                                    <Grid.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Grid.RenderTransform>
+                                    <vsm:VisualStateManager.VisualStateGroups>
+                                        <vsm:VisualStateGroup x:Name="CommonStates">
+                                            <vsm:VisualStateGroup.Transitions>
+                                                <vsm:VisualTransition GeneratedDuration="00:00:00.1000000"/>
+                                            </vsm:VisualStateGroup.Transitions>
+                                            <vsm:VisualState x:Name="Pressed">
+                                                <Storyboard>
+                                                    <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="Root" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+                                                        <SplineDoubleKeyFrame KeyTime="00:00:00" Value="0.85"/>
+                                                    </DoubleAnimationUsingKeyFrames>
+                                                    <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="Root" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+                                                        <SplineDoubleKeyFrame KeyTime="00:00:00" Value="0.85"/>
+                                                    </DoubleAnimationUsingKeyFrames>
+                                                </Storyboard>
+                                            </vsm:VisualState>
+                                            <vsm:VisualState x:Name="MouseOver">
+                                                <Storyboard>
+                                                    <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="glow" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                                        <SplineDoubleKeyFrame KeyTime="00:00:00" Value="0.75"/>
+                                                    </DoubleAnimationUsingKeyFrames>
+                                                </Storyboard>
+                                            </vsm:VisualState>
+                                            <vsm:VisualState x:Name="Normal">
+                                                <Storyboard/>
+                                            </vsm:VisualState>
+                                            <vsm:VisualState x:Name="Disabled">
+                                                <Storyboard>
+                                                    <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="icon" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                                        <SplineDoubleKeyFrame KeyTime="00:00:00" Value="0.5"/>
+                                                    </DoubleAnimationUsingKeyFrames>
+                                                </Storyboard>
+                                            </vsm:VisualState>
+                                        </vsm:VisualStateGroup>
+                                        <vsm:VisualStateGroup x:Name="FocusStates">
+                                            <vsm:VisualStateGroup.Transitions>
+                                                <vsm:VisualTransition GeneratedDuration="00:00:00.1000000"/>
+                                            </vsm:VisualStateGroup.Transitions>
+                                            <vsm:VisualState x:Name="Focused">
+                                                <Storyboard>
+                                                    <ColorAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="background" Storyboard.TargetProperty="(Shape.Stroke).(SolidColorBrush.Color)">
+                                                        <SplineColorKeyFrame KeyTime="00:00:00" Value="#FFFFFFFF"/>
+                                                    </ColorAnimationUsingKeyFrames>
+                                                </Storyboard>
+                                            </vsm:VisualState>
+                                            <vsm:VisualState x:Name="Unfocused">
+                                                <Storyboard/>
+                                            </vsm:VisualState>
+                                        </vsm:VisualStateGroup>
+                                    </vsm:VisualStateManager.VisualStateGroups>
+                                    <Rectangle HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" Stroke="#BF2D2D2D" StrokeThickness="1" RadiusX="3.089" RadiusY="3.089" Opacity="0.5" x:Name="background">
+                                        <Rectangle.Fill>
+                                            <RadialGradientBrush>
+                                                <RadialGradientBrush.RelativeTransform>
+                                                    <TransformGroup>
+                                                        <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="1.201" ScaleY="1.201"/>
+                                                        <SkewTransform CenterX="0.5" CenterY="0.5"/>
+                                                        <RotateTransform CenterX="0.5" CenterY="0.5"/>
+                                                        <TranslateTransform X="0.026" Y="0.01"/>
+                                                    </TransformGroup>
+                                                </RadialGradientBrush.RelativeTransform>
+                                                <GradientStop Color="#FF414141"/>
+                                                <GradientStop Color="#FF121212" Offset="1"/>
+                                                <GradientStop Color="#FF000000" Offset="0.929"/>
+                                            </RadialGradientBrush>
+                                        </Rectangle.Fill>
+                                    </Rectangle>
+                                    <Rectangle Height="10.013" HorizontalAlignment="Stretch" Margin="1.43400001525879,1.4099999666214,1.44599997997284,0" VerticalAlignment="Top" StrokeThickness="0" RadiusX="2.714" RadiusY="2.714" Opacity="0.31" x:Name="glow">
+                                        <Rectangle.Fill>
+                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                <GradientStop Color="#7FFFFFFF" Offset="0.567"/>
+                                                <GradientStop Color="#00FFFFFF" Offset="1"/>
+                                            </LinearGradientBrush>
+                                        </Rectangle.Fill>
+                                    </Rectangle>
+                                    <Path HorizontalAlignment="Stretch" Margin="7.11600017547607,8.9040002822876,7.33199977874756,2.43199992179871" VerticalAlignment="Stretch" RenderTransformOrigin="0.21169875562191,0.515804290771484" Data="M9.7357426,1.2991188 C8.8391314,1.3764834 7.9657421,1.7963786 7.328094,2.5404668 C6.0527983,4.0286427 6.2033973,6.2500486 7.6644664,7.5021152 C9.125536,8.7541819 11.343798,8.5627775 12.619094,7.0746012 C13.89439,5.5864253 13.743791,3.3650196 12.282722,2.1129529 C11.552187,1.4869194 10.632354,1.2217538 9.7357426,1.2991188 z M9.7358646,0.014144421 C10.948107,-0.079320908 12.195944,0.28967381 13.192041,1.1432819 C15.184237,2.8504987 15.415072,5.8496809 13.707626,7.842144 C12.00018,9.8346071 9.001029,10.065845 7.0088339,8.3586283 C6.1849132,7.6525679 5.662262,6.7255244 5.5311456,5.7236261 L0.023058288,6.0170622 L-0.023091979,3.7851748 L5.4839067,4.0786262 C5.5233302,3.2056813 5.8855095,2.3689535 6.4932489,1.6597667 C7.346972,0.66353512 8.5236216,0.10760975 9.7358646,0.014144421 z" Stretch="Fill" Stroke="#FF000000" StrokeThickness="0" Fill="#FFFFFFFF" x:Name="icon">
+                                        <Path.RenderTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform ScaleY="1"/>
+                                                <SkewTransform/>
+                                                <RotateTransform Angle="-40.595"/>
+                                                <TranslateTransform Y="-0.0034574651858712002" X="-0.0016605474372224371"/>
+                                            </TransformGroup>
+                                        </Path.RenderTransform>
+                                    </Path>
+                                    <ContentPresenter Margin="11.8059997558594,5.88800001144409,10.4069995880127,8"/>
+                                </Grid>
+                            </ControlTemplate>
+
+                        </Canvas.Resources>
+                        <vsm:VisualStateManager.VisualStateGroups>
+                            <vsm:VisualStateGroup x:Name="CommonStates">
+                                <vsm:VisualStateGroup.Transitions>
+                                    <vsm:VisualTransition GeneratedDuration="00:00:00.3000000"/>
+                                </vsm:VisualStateGroup.Transitions>
+                                <vsm:VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="LayoutRoot" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                            <SplineDoubleKeyFrame KeyTime="00:00:00" Value="1"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </vsm:VisualState>
+                                <vsm:VisualState x:Name="Normal">
+                                    <Storyboard/>
+                                </vsm:VisualState>
+                            </vsm:VisualStateGroup>
+                            <vsm:VisualStateGroup x:Name="DashboardStates">
+                                <vsm:VisualState x:Name="Expanded">
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="navigationArrowGrid" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)">
+                                            <SplineDoubleKeyFrame KeyTime="00:00:00.6000000" Value="0">
+                                                <SplineDoubleKeyFrame.KeySpline>
+                                                    <KeySpline ControlPoint1="0.5,0" ControlPoint2="0.5,1"/>
+                                                </SplineDoubleKeyFrame.KeySpline>
+                                            </SplineDoubleKeyFrame>
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="PART_HorizontalToolbarContent" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                            <SplineDoubleKeyFrame KeyTime="00:00:00.6000000" Value="1">
+                                                <SplineDoubleKeyFrame.KeySpline>
+                                                    <KeySpline ControlPoint1="1,0" ControlPoint2="1,1"/>
+                                                </SplineDoubleKeyFrame.KeySpline>
+                                            </SplineDoubleKeyFrame>
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="VerticalToolBarContent" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                            <SplineDoubleKeyFrame KeyTime="00:00:00.6000000" Value="1">
+                                                <SplineDoubleKeyFrame.KeySpline>
+                                                    <KeySpline ControlPoint1="1,0" ControlPoint2="1,1"/>
+                                                </SplineDoubleKeyFrame.KeySpline>
+                                            </SplineDoubleKeyFrame>
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="PART_borderHorizontalToolbar" Storyboard.TargetProperty="(UIElement.Width)">
+                                            <SplineDoubleKeyFrame x:Name="PART_HorizontalSplineDoubleKeyFrame" KeyTime="00:00:00.6000000" Value="40">
+                                            </SplineDoubleKeyFrame>
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="borderVerticalToolBar" Storyboard.TargetProperty="(UIElement.Height)">
+                                            <SplineDoubleKeyFrame KeyTime="00:00:00.6000000" Value="80">
+                                            </SplineDoubleKeyFrame>
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </vsm:VisualState>
+                                <vsm:VisualState x:Name="Collapsed">
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="navigationArrowGrid" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)">
+                                            <SplineDoubleKeyFrame KeyTime="00:00:00.6000000" Value="-360">
+                                                <SplineDoubleKeyFrame.KeySpline>
+                                                    <KeySpline ControlPoint1="0.5,0" ControlPoint2="0.5,1"/>
+                                                </SplineDoubleKeyFrame.KeySpline>
+                                            </SplineDoubleKeyFrame>
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="VerticalToolBarContent" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                            <SplineDoubleKeyFrame KeyTime="00:00:00.6000000" Value="0">
+                                                <SplineDoubleKeyFrame.KeySpline>
+                                                    <KeySpline ControlPoint1="0,1" ControlPoint2="0.600000023841858,0.8"/>
+                                                </SplineDoubleKeyFrame.KeySpline>
+                                            </SplineDoubleKeyFrame>
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="PART_HorizontalToolbarContent" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                            <SplineDoubleKeyFrame KeyTime="00:00:00.6000000" Value="0">
+                                                <SplineDoubleKeyFrame.KeySpline>
+                                                    <KeySpline ControlPoint1="0,1" ControlPoint2="0.600000023841858,0.8"/>
+                                                </SplineDoubleKeyFrame.KeySpline>
+                                            </SplineDoubleKeyFrame>
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="PART_borderHorizontalToolbar" Storyboard.TargetProperty="(UIElement.Width)">
+                                            <SplineDoubleKeyFrame KeyTime="00:00:00.6000000" Value="0">
+                                            </SplineDoubleKeyFrame>
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="borderVerticalToolBar" Storyboard.TargetProperty="(UIElement.Height)">
+                                            <SplineDoubleKeyFrame KeyTime="00:00:00.6000000" Value="0">
+                                            </SplineDoubleKeyFrame>
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </vsm:VisualState>
+                            </vsm:VisualStateGroup>
+                        </vsm:VisualStateManager.VisualStateGroups>
+                        <!--Horizontal Toolbar-->
+                        <StackPanel x:Name="HorizontalToolbar" Orientation="Horizontal" HorizontalAlignment="Left" Canvas.Left="85.1" Canvas.Top="23.35" >
+
+                            <Border x:Name="PART_borderHorizontalToolbar" Height="48.111" Background="#D82B2B2B" BorderBrush="#FF000000" BorderThickness="0,1,0,1" RenderTransformOrigin="0.5,0.5" Visibility="Visible" Margin="0,0,0,0" MinWidth="12" >
+                                <Border.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Border.RenderTransform>
+
+                                <ContentPresenter Margin="14,0,20,0" x:Name="PART_HorizontalToolbarContent" Content="{TemplateBinding Content}" />
+
+                            </Border>
+
+                            <!--bandNavigation-->
+                            <ContentControl x:Name="bandHorizontalToolbar" HorizontalAlignment="Left" Content="ContentControl" ContentTemplate="{StaticResource EndPath}" Height="48.111" Width="14.616" RenderTransformOrigin="0.0,0.5" Margin="-8,0,0,0"/>
+
+                        </StackPanel>
+
+                        <!--Vertical Toolbar-->
+                        <StackPanel x:Name="VerticalToolBar" Canvas.Left="22.734" Canvas.Top="87.448">
+                            <!--borderSidebarContent-->
+                            <Border x:Name="borderVerticalToolBar" MinHeight="12" Height="80" Width="48.525" Background="#FF2B2B2B" BorderBrush="#FF000000" BorderThickness="1,0,1,0" RenderTransformOrigin="0.5,0.5">
+                                <Border.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Border.RenderTransform>
+                                <StackPanel Margin="0,20,0,0" Orientation="Vertical" x:Name="VerticalToolBarContent">
+                                    <RepeatButton Margin="7.80000019073486,0,7.80000019073486,2" x:Name="PART_zoomInButton" Template="{StaticResource zoomButtonTemplate}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+                                        <Path Height="4.8" Width="4.8" Data="M1.9000001,0 L2.9000001,0 L2.9000001,1.9000001 L4.8000002,1.9000001 L4.8000002,2.9000001 L2.9000001,2.9000001 L2.9000001,4.8000002 L1.9000001,4.8000002 L1.9000001,2.9000001 L0,2.9000001 L0,1.9000001 L1.9000001,1.9000001 L1.9000001,0 z" Fill="#FFFFFFFF" Stretch="Fill" Stroke="#FF000000" StrokeThickness="0" Margin="0.5,0,0,1"/>
+                                    </RepeatButton>
+                                    <RepeatButton Margin="7.80000019073486,2,7.80000019073486,0" Grid.Row="1" x:Name="PART_zoomOutButton" Template="{StaticResource zoomButtonTemplate}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" >
+                                        <Rectangle Height="1" Width="4.8" Fill="#FFFFFFFF" Stroke="#FF000000" StrokeThickness="0" RadiusX="0" RadiusY="0" Margin="0,0,0,1"/>
+                                    </RepeatButton>
+                                </StackPanel>
+                            </Border>
+
+                            <!--BandZoom-->
+                            <ContentControl x:Name="bandVerticalToolBar" HorizontalAlignment="Left" Content="ContentControl" ContentTemplate="{StaticResource EndPath}" Height="48.57" Width="14.616" RenderTransformOrigin="0.5,0.5" Margin="18,-30,0,0">
+                                <ContentControl.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="90"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </ContentControl.RenderTransform>
+                            </ContentControl>
+                        </StackPanel>
+                        <!--navigationGrid-->
+                        <Grid Height="95" Width="95" x:Name="navigationGrid" RenderTransformOrigin="0.5,0.5">
+                            <Grid x:Name="rotationGlobeGrid" RenderTransformOrigin="0.5,0.5">
+                                <Grid.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform x:Name="rotationGlobeGridAngle" Angle="0"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Grid.RenderTransform>
+                                <Ellipse x:Name="rotationGlobe" Stroke="#FF000000" StrokeThickness="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RenderTransformOrigin="0.5,0.5">
+                                    <Ellipse.Fill>
+                                        <RadialGradientBrush>
+                                            <GradientStop Color="#FFE0DBDB" Offset="1"/>
+                                            <GradientStop Color="#FF434343" Offset="0.827"/>
+                                        </RadialGradientBrush>
+                                    </Ellipse.Fill>
+                                    <Ellipse.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform Angle="0"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Ellipse.RenderTransform>
+                                </Ellipse>
+                            </Grid>
+                            <Path HorizontalAlignment="Center" Margin="10,10,10,10" x:Name="navigationGlobe" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Stroke="#FF000000" StrokeThickness="2" Data="M70,35.5 C70,54.553825 54.553825,70 35.5,70 C16.446177,70 1,54.553825 1,35.5 C1,16.446177 16.446177,1 35.5,1 C54.553825,1 70,16.446177 70,35.5 z">
+                                <Path.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Path.RenderTransform>
+                                <Path.Fill>
+                                    <RadialGradientBrush>
+                                        <GradientStop Color="#FF282828"/>
+                                        <GradientStop Color="#FF313131" Offset="1"/>
+                                        <GradientStop Color="#FF000000" Offset="0.8880000114440918"/>
+                                    </RadialGradientBrush>
+                                </Path.Fill>
+                            </Path>
+                            <Path x:Name="navigationGlobeHighlight" Opacity="0.6" RenderTransformOrigin="0.5,0.5" Stretch="Fill" StrokeThickness="2" Data="M49.713001,24.856501 C49.713001,38.584366 38.584366,49.713001 24.856501,49.713001 C11.128634,49.713001 0,38.584366 0,24.856501 C0,11.128634 11.128634,0 24.856501,0 C38.584366,0 49.713001,11.128634 49.713001,24.856501 z" Margin="20,15,20,30">
+                                <Path.Fill>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#7FFFFFFF" Offset="0.99099999666213989"/>
+                                        <GradientStop Color="#33FFFFFF" Offset="0.54900002479553223"/>
+                                    </LinearGradientBrush>
+                                </Path.Fill>
+                                <Path.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Path.RenderTransform>
+                            </Path>
+                            <Grid x:Name="navigationArrowGrid" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" Margin="10,10,10,10" VerticalAlignment="Center">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.51*"/>
+                                    <ColumnDefinition Width="Auto" MinWidth="40.004"/>
+                                    <ColumnDefinition Width="0.49*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="0.51*"/>
+                                    <RowDefinition Height="Auto" MinHeight="40.004"/>
+                                    <RowDefinition Height="0.49*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Grid.RenderTransform>
+                                <RepeatButton Margin="0,0,2,0" x:Name="PART_rightButton" Template="{StaticResource arrowButton}" Grid.Column="2" Grid.RowSpan="1" Grid.Row="1" >
+                                    <RepeatButton.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </RepeatButton.RenderTransform>
+                                    <Grid Height="Auto" Width="Auto">
+                                        <Path Stretch="Fill" StrokeLineJoin="Round" Stroke="#FF000000" Data="F1 M 182.515,153L 132.992,124.408L 132.992,181.592L 182.515,153 Z " Fill="#FFFFFFFF" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" RenderTransformOrigin="0.5,0.5" Width="12" Height="14">
+                                            <Path.RenderTransform>
+                                                <TransformGroup>
+                                                    <ScaleTransform ScaleX="1"/>
+                                                    <SkewTransform/>
+                                                    <RotateTransform/>
+                                                    <TranslateTransform/>
+                                                </TransformGroup>
+                                            </Path.RenderTransform>
+                                        </Path>
+                                        <Path HorizontalAlignment="Stretch" Margin="-13.5190000534058,12.9899997711182,-13.1160001754761,13.0019998550415" VerticalAlignment="Stretch" Opacity="0.01" Data="M39.504002,11.721426 C39.504002,17.918848 30.772659,22.942852 20.002001,22.942852 C9.2313433,22.942852 0.5,17.918848 0.5,11.721426 C0.5,5.5240035 9.8831472,8.4636641 20.653805,8.4636641 C31.424463,8.4636641 39.504002,5.5240035 39.504002,11.721426 z" Fill="#FFFFFFFF" Stretch="Fill" Height="14.012" RenderTransformOrigin="0.5,0.5" >
+                                            <Path.RenderTransform>
+                                                <TransformGroup>
+                                                    <ScaleTransform/>
+                                                    <SkewTransform/>
+                                                    <RotateTransform Angle="-90"/>
+                                                    <TranslateTransform/>
+                                                </TransformGroup>
+                                            </Path.RenderTransform>
+                                        </Path>
+                                    </Grid>
+                                </RepeatButton>
+                                <RepeatButton Margin="0,0,0,2" x:Name="PART_downButton" Template="{StaticResource arrowButton}" RenderTransformOrigin="0.5,0.5" Grid.Row="2" Grid.Column="1">
+                                    <RepeatButton.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </RepeatButton.RenderTransform>
+                                    <Grid Height="Auto" Width="Auto">
+                                        <Path Stretch="Fill" StrokeLineJoin="Round" Stroke="#FF000000" Data="F1 M 182.515,153L 132.992,124.408L 132.992,181.592L 182.515,153 Z " Fill="#FFFFFFFF" RenderTransformOrigin="0.5,0.5" Width="12" Height="14">
+                                            <Path.RenderTransform>
+                                                <TransformGroup>
+                                                    <ScaleTransform ScaleX="1"/>
+                                                    <SkewTransform/>
+                                                    <RotateTransform Angle="90"/>
+                                                    <TranslateTransform/>
+                                                </TransformGroup>
+                                            </Path.RenderTransform>
+                                        </Path>
+                                        <Path HorizontalAlignment="Stretch" Margin="0,-0.64300000667572,0,0" VerticalAlignment="Stretch" Opacity="0.01" Data="M39.504002,11.721426 C39.504002,17.918848 30.772659,22.942852 20.002001,22.942852 C9.2313433,22.942852 0.5,17.918848 0.5,11.721426 C0.5,5.5240035 9.8831472,8.4636641 20.653805,8.4636641 C31.424463,8.4636641 39.504002,5.5240035 39.504002,11.721426 z" Fill="#FFFFFFFF" Stretch="Fill"/>
+                                    </Grid>
+                                </RepeatButton>
+                                <RepeatButton Margin="2,0.0020000000949949,0,0" x:Name="PART_leftButton" Template="{StaticResource arrowButton}" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="1" Grid.Row="1">
+                                    <RepeatButton.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </RepeatButton.RenderTransform>
+                                    <Grid Height="Auto" Width="Auto">
+                                        <Path Stretch="Fill" StrokeLineJoin="Round" Stroke="#FF000000" Data="F1 M 182.515,153L 132.992,124.408L 132.992,181.592L 182.515,153 Z " Fill="#FFFFFFFF" RenderTransformOrigin="0.5,0.5" Width="12" Height="14">
+                                            <Path.RenderTransform>
+                                                <TransformGroup>
+                                                    <ScaleTransform ScaleX="1"/>
+                                                    <SkewTransform/>
+                                                    <RotateTransform Angle="180"/>
+                                                    <TranslateTransform/>
+                                                </TransformGroup>
+                                            </Path.RenderTransform>
+                                        </Path>
+                                        <Path HorizontalAlignment="Stretch" Margin="-14.2829999923706,13.7069997787476,-13.7209997177124,0" VerticalAlignment="Top" Opacity="0.01" Data="M39.504002,11.721426 C39.504002,17.918848 30.772659,22.942852 20.002001,22.942852 C9.2313433,22.942852 0.5,17.918848 0.5,11.721426 C0.5,5.5240035 9.8831472,8.4636641 20.653805,8.4636641 C31.424463,8.4636641 39.504002,5.5240035 39.504002,11.721426 z" Fill="#FFFFFFFF" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Height="12.569">
+                                            <Path.RenderTransform>
+                                                <TransformGroup>
+                                                    <ScaleTransform/>
+                                                    <SkewTransform/>
+                                                    <RotateTransform Angle="90"/>
+                                                    <TranslateTransform/>
+                                                </TransformGroup>
+                                            </Path.RenderTransform>
+                                        </Path>
+                                    </Grid>
+                                </RepeatButton>
+                                <RepeatButton Margin="0,2,0,0" x:Name="PART_upButton" Template="{StaticResource arrowButton}" RenderTransformOrigin="0.5,0.5" Grid.Column="1">
+                                    <RepeatButton.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </RepeatButton.RenderTransform>
+                                    <Grid Height="Auto" Width="Auto">
+                                        <Path Stretch="Fill" StrokeLineJoin="Round" Stroke="#FF000000" Data="F1 M 182.515,153L 132.992,124.408L 132.992,181.592L 182.515,153 Z " Fill="#FFFFFFFF" RenderTransformOrigin="0.5,0.5" Width="12" Height="14">
+                                            <Path.RenderTransform>
+                                                <TransformGroup>
+                                                    <ScaleTransform ScaleX="1"/>
+                                                    <SkewTransform/>
+                                                    <RotateTransform Angle="-90"/>
+                                                    <TranslateTransform/>
+                                                </TransformGroup>
+                                            </Path.RenderTransform>
+                                        </Path>
+                                        <Path HorizontalAlignment="Stretch" Margin="0,-0.64300000667572,0,0.626999974250793" VerticalAlignment="Stretch" Opacity="0.01" Data="M39.504002,11.721426 C39.504002,17.918848 30.772659,22.942852 20.002001,22.942852 C9.2313433,22.942852 0.5,17.918848 0.5,11.721426 C0.5,5.5240035 9.8831472,8.4636641 20.653805,8.4636641 C31.424463,8.4636641 39.504002,5.5240035 39.504002,11.721426 z" Fill="#FFFFFFFF" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                                            <Path.RenderTransform>
+                                                <TransformGroup>
+                                                    <ScaleTransform/>
+                                                    <SkewTransform/>
+                                                    <RotateTransform Angle="180"/>
+                                                    <TranslateTransform/>
+                                                </TransformGroup>
+                                            </Path.RenderTransform>
+                                        </Path>
+                                    </Grid>
+                                </RepeatButton>
+                                <Button Grid.Column="1" Grid.Row="1" x:Name="PART_spinButton" Style="{StaticResource spinButtonTemplate}">
+                                    <Rectangle Fill="#FFFFFFFF" Opacity="0" RadiusY="0" RadiusX="0"/>
+                                </Button>
+                            </Grid>
+                        </Grid>
+                    </Canvas>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
+

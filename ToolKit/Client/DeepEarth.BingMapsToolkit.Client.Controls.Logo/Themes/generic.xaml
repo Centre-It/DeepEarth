@@ -1,0 +1,19 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Logo="clr-namespace:DeepEarth.BingMapsToolkit.Client.Controls">
+    <Style TargetType="Logo:Logo">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Logo:Logo">
+                    <Grid x:Name="LayoutRoot">
+                        <HyperlinkButton NavigateUri="http://deepearth.codeplex.com" TargetName="_blank">
+                            <Image Height="30" Source="/DeepEarth.BingMapsToolkit.Client.Controls.Logo;component/Images/DeepEarthMap.png"></Image>
+                        </HyperlinkButton>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
+

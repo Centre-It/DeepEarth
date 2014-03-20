@@ -1,0 +1,55 @@
+﻿XAML:
+
+<UserControl x:Class="ExampleControlBing.ControlDemos.AutomationExample"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+	xmlns:a="clr-namespace:DeepEarth.BingMapsToolkit.Client.Controls;assembly=Automation"
+	xmlns:m="clr-namespace:Microsoft.Maps.MapControl;assembly=Microsoft.Maps.MapControl" >
+    <Grid x:Name="LayoutRoot" Background="White">
+		<m:Map x:Name="map" CredentialsProvider="{StaticResource MyCredentials}" />
+		<a:Automation Name="automation" MapName="map" />
+	</Grid>
+</UserControl>
+
+CS:
+
+using System.Windows;
+using DeepEarth.BingMapsToolkit.Client.Controls;
+using System.Windows.Controls;
+using System.Collections.Generic;
+
+namespace ExampleControlBing.ControlDemos
+{
+	public partial class AutomationExample : UserControl
+	{
+		public AutomationExample()
+		{
+			InitializeComponent();
+
+			Loaded += AutomationExample_Loaded;
+			automation.OnGetFeatureLocation += automation_OnGetFeatureLocation;
+			automation.OnGetLayerLocations += automation_OnGetLayerLocations;
+		}
+
+		void automation_OnGetLayerLocations(object sender, GetLayerLocationsEventArgs e)
+		{
+			List<string> features = new List<string>();
+			features.Add("1");
+			features.Add("2");
+			e.OnGetLayerLocationsComplete(features);
+		}
+
+		void automation_OnGetFeatureLocation(object sender, GetFeatureLocationEventArgs e)
+		{
+			if (e.ItemID.CompareTo("1") == 0)
+				e.OnGetFeatureLocationComplete(new Microsoft.Maps.MapControl.LocationRect(new Microsoft.Maps.MapControl.Location(10,10), new Microsoft.Maps.MapControl.Location(40,40)));
+			if (e.ItemID.CompareTo("2") == 0)
+			e.OnGetFeatureLocationComplete(new Microsoft.Maps.MapControl.LocationRect(new Microsoft.Maps.MapControl.Location(5, 5), new Microsoft.Maps.MapControl.Location(10, 10)));
+		}
+
+		void AutomationExample_Loaded(object sender, RoutedEventArgs e)
+		{
+			automation.Process(@"<Root> <Pause time='1000' /> <ForEachRecordInLayer layerid='Layer 2'> <Pause time='2000' /> <ZoomToRecord /> </ForEachRecordInLayer> <Pause time='1000'/> <ZoomToLevel level='2'/> </Root> ");
+		}
+	}
+}

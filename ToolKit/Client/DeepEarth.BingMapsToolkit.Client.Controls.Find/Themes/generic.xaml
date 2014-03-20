@@ -1,0 +1,225 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vsm="clr-namespace:System.Windows;assembly=System.Windows"
+    xmlns:Find="clr-namespace:DeepEarth.BingMapsToolkit.Client.Controls"
+	xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+	xmlns:localprimitives="clr-namespace:System.Windows.Controls.Primitives;assembly=System.Windows.Controls.Data"
+	xmlns:layoutToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Layout.Toolkit">
+
+	<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary Source="/DeepEarth.BingMapsToolkit.Client.Common;component/Resources/CommonStyles.xaml" />
+	</ResourceDictionary.MergedDictionaries>
+
+	<Style x:Key="DataGridColumnHeaderStyle" TargetType="localprimitives:DataGridColumnHeader">
+		<Setter Property="Foreground" Value="White" />
+		<Setter Property="HorizontalContentAlignment" Value="Center" />
+		<Setter Property="VerticalContentAlignment" Value="Center" />
+		<Setter Property="IsTabStop" Value="False" />
+		<Setter Property="SeparatorBrush" Value="#FFC9CACA" />
+		<Setter Property="Padding" Value="4,4,5,4" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="localprimitives:DataGridColumnHeader">
+					<Grid Name="Root">
+						<vsm:VisualStateManager.VisualStateGroups>
+							<vsm:VisualStateGroup x:Name="CommonStates">
+								<vsm:VisualStateGroup.Transitions>
+									<vsm:VisualTransition GeneratedDuration="00:00:0.1" />
+								</vsm:VisualStateGroup.Transitions>
+								<vsm:VisualState x:Name="Normal" />
+								<vsm:VisualState x:Name="MouseOver">
+									<Storyboard>
+										<ColorAnimationUsingKeyFrames BeginTime="0" Duration="0" Storyboard.TargetName="BackgroundRectangle" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)">
+											<SplineColorKeyFrame KeyTime="0" Value="#FF2B2B2B"/>
+										</ColorAnimationUsingKeyFrames>
+										<ColorAnimationUsingKeyFrames BeginTime="0" Duration="0" Storyboard.TargetName="BackgroundGradient" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[3].(GradientStop.Color)">
+											<SplineColorKeyFrame KeyTime="0" Value="#FF2B2B2B"/>
+										</ColorAnimationUsingKeyFrames>
+										<ColorAnimationUsingKeyFrames BeginTime="0" Duration="0" Storyboard.TargetName="BackgroundGradient" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[2].(GradientStop.Color)">
+											<SplineColorKeyFrame KeyTime="0" Value="#FF2B2B2B"/>
+										</ColorAnimationUsingKeyFrames>
+										<ColorAnimationUsingKeyFrames BeginTime="0" Duration="0" Storyboard.TargetName="BackgroundGradient" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[1].(GradientStop.Color)">
+											<SplineColorKeyFrame KeyTime="0" Value="#FF2B2B2B"/>
+										</ColorAnimationUsingKeyFrames>
+									</Storyboard>
+								</vsm:VisualState>
+							</vsm:VisualStateGroup>
+							<vsm:VisualStateGroup x:Name="SortStates">
+								<vsm:VisualStateGroup.Transitions>
+									<vsm:VisualTransition GeneratedDuration="00:00:0.1" />
+								</vsm:VisualStateGroup.Transitions>
+								<vsm:VisualState x:Name="Unsorted" />
+								<vsm:VisualState x:Name="SortAscending">
+									<Storyboard>
+										<DoubleAnimation Storyboard.TargetName="SortIcon" Storyboard.TargetProperty="Opacity" Duration="0" To="1.0"/>
+									</Storyboard>
+								</vsm:VisualState>
+								<vsm:VisualState x:Name="SortDescending">
+									<Storyboard>
+										<DoubleAnimation Storyboard.TargetName="SortIcon" Storyboard.TargetProperty="Opacity" Duration="0" To="1.0"/>
+										<DoubleAnimation Storyboard.TargetName="SortIconTransform" Storyboard.TargetProperty="ScaleY" Duration="0" To="-.9"/>
+									</Storyboard>
+								</vsm:VisualState>
+							</vsm:VisualStateGroup>
+						</vsm:VisualStateManager.VisualStateGroups>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="*" />
+							<RowDefinition Height="*" />
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="Auto" />
+							<ColumnDefinition Width="*" />
+							<ColumnDefinition Width="Auto" />
+						</Grid.ColumnDefinitions>
+						<Rectangle x:Name="BackgroundRectangle" Stretch="Fill" Fill="#FF2B2B2B" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+						<Rectangle x:Name="BackgroundGradient" Stretch="Fill" Grid.ColumnSpan="2" Grid.RowSpan="2">
+							<Rectangle.Fill>
+								<LinearGradientBrush StartPoint=".7,0" EndPoint=".7,1">
+									<GradientStop Color="#FF2B2B2B" Offset="0.015" />
+									<GradientStop Color="#FF2B2B2B" Offset="0.375" />
+									<GradientStop Color="#FF2B2B2B" Offset="0.6" />
+									<GradientStop Color="#FF2B2B2B" Offset="1" />
+								</LinearGradientBrush>
+							</Rectangle.Fill>
+						</Rectangle>
+						<ContentPresenter
+                            Grid.RowSpan="2"
+                            Content="{TemplateBinding Content}"
+                            Cursor="{TemplateBinding Cursor}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Margin="{TemplateBinding Padding}"/>
+						<Rectangle Name="VerticalSeparator" Grid.RowSpan="2" Grid.Column="2" Width="1" VerticalAlignment="Stretch" Fill="{TemplateBinding SeparatorBrush}" Visibility="{TemplateBinding SeparatorVisibility}" />
+						<Path Grid.RowSpan="2" Name="SortIcon" RenderTransformOrigin=".5,.5" HorizontalAlignment="Left" VerticalAlignment="Center" Opacity="0" Grid.Column="1" Stretch="Uniform" Width="8" Data="F1 M -5.215,6.099L 5.215,6.099L 0,0L -5.215,6.099 Z ">
+							<Path.Fill>
+								<SolidColorBrush Color="#FF444444" />
+							</Path.Fill>
+							<Path.RenderTransform>
+								<TransformGroup>
+									<ScaleTransform x:Name="SortIconTransform" ScaleX=".9" ScaleY=".9" />
+								</TransformGroup>
+							</Path.RenderTransform>
+						</Path>
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style TargetType="Find:FindControl">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="Find:FindControl">
+					<Canvas x:Name="LayoutRoot" Width="350" Opacity="0.82">
+						<Canvas.Resources>
+							<DataTemplate x:Key="ItemDataTemplate">
+								<TextBlock Text="{Binding Path=DisplayName}" TextWrapping="Wrap"/>
+							</DataTemplate>
+						</Canvas.Resources>
+						<vsm:VisualStateManager.VisualStateGroups>
+							<vsm:VisualStateGroup x:Name="CommonStates">
+								<vsm:VisualStateGroup.Transitions>
+									<vsm:VisualTransition GeneratedDuration="00:00:00.3000000"/>
+								</vsm:VisualStateGroup.Transitions>
+								<vsm:VisualState x:Name="MouseOver">
+									<Storyboard>
+										<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="LayoutRoot" Storyboard.TargetProperty="(UIElement.Opacity)">
+											<SplineDoubleKeyFrame KeyTime="00:00:00" Value="1"/>
+										</DoubleAnimationUsingKeyFrames>
+									</Storyboard>
+								</vsm:VisualState>
+								<vsm:VisualState x:Name="Normal">
+									<Storyboard/>
+								</vsm:VisualState>
+							</vsm:VisualStateGroup>
+							<vsm:VisualStateGroup x:Name="OptionsStates">
+								<vsm:VisualStateGroup.Transitions>
+									<vsm:VisualTransition GeneratedDuration="00:00:00.3000000"/>
+								</vsm:VisualStateGroup.Transitions>
+								<vsm:VisualState x:Name="OptionsOpened">
+									<Storyboard>
+										<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.001" Storyboard.TargetName="PART_OptionsPanel" Storyboard.TargetProperty="(FrameworkElement.Height)">
+											<SplineDoubleKeyFrame KeyTime="00:00:00" Value="50"/>
+										</DoubleAnimationUsingKeyFrames>
+									</Storyboard>
+								</vsm:VisualState>
+								<vsm:VisualState x:Name="OptionsClosed">
+									<Storyboard/>
+								</vsm:VisualState>
+							</vsm:VisualStateGroup>
+						</vsm:VisualStateManager.VisualStateGroups>
+						<Grid Canvas.ZIndex="5">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="*" />
+								<ColumnDefinition Width="25" />
+								<ColumnDefinition Width="25" />
+								<ColumnDefinition Width="25" />
+								<ColumnDefinition Width="25" />
+							</Grid.ColumnDefinitions>
+							<Image x:Name="PART_LoadingIndicator" Source="/DeepEarth.BingMapsToolkit.Client.Controls.Find;component/Images/loading.png" Grid.Column="1" Height="20" Visibility="Collapsed"></Image>
+							<Button x:Name="PART_ClearFind" Grid.Column="2" Style="{StaticResource ButtonStyle}" Height="20" ToolTipService.ToolTip="Clear Results">
+								<Image Source="/DeepEarth.BingMapsToolkit.Client.Controls.Find;component/Images/clear.png"></Image>
+							</Button>
+							<TextBox x:Name="PART_FindSearchbox" Grid.Column="0" Width="200" Style="{StaticResource TextBoxStyle}" FontSize="12" Height="25" />
+							<Button x:Name="PART_TriggerFind" Grid.Column="1" Style="{StaticResource ButtonStyle}" Height="20" ToolTipService.ToolTip="Search" >
+								<Image Source="/DeepEarth.BingMapsToolkit.Client.Controls.Find;component/Images/search.png"></Image>
+							</Button>
+							<ToggleButton x:Name="PART_triggerOptions" Grid.Column="3" Height="20" ToolTipService.ToolTip="Options" Style="{StaticResource ToggleButtonStyle}" >
+								<Image Source="/DeepEarth.BingMapsToolkit.Client.Controls.Find;component/Images/bullet_wrench.png"></Image>
+							</ToggleButton>
+							<ToggleButton Height="20" Grid.Column="4" Name="PART_searchResult" ToolTipService.ToolTip="Hide/Show Results" Style="{StaticResource ToggleButtonStyle}" >
+								<Image Source="/DeepEarth.BingMapsToolkit.Client.Controls.Find;component/Images/27.png"></Image>
+							</ToggleButton>
+						</Grid>
+						<Grid Canvas.ZIndex="3" Name="PART_OptionsPanel" Canvas.Top="40" Opacity="0.8" Height="0" Background="#FF2B2B2B">
+							<RadioButton x:Name="PART_anyLocationRadio" Foreground="White" Content="Any Location" Height="20" Margin="35,0,0,23" VerticalAlignment="Bottom" GroupName="gnSearchPlace" IsChecked="True" HorizontalAlignment="Left" Width="120" Style="{StaticResource RadioButtonStyle}"/>
+							<RadioButton x:Name="PART_currentViewRadio" Foreground="White" Content="Current View" Height="20" Margin="160,0,0,23" VerticalAlignment="Bottom" GroupName="gnSearchPlace" HorizontalAlignment="Left" Width="120" Style="{StaticResource RadioButtonStyle}"/>
+							<CheckBox x:Name="PART_layersOption" Foreground="White" Content="Layers" Margin="10,0,0,0" Height="20" VerticalAlignment="Bottom" IsChecked="True" HorizontalAlignment="Left"  Style="{StaticResource CheckBoxStyle}" />
+							<CheckBox x:Name="PART_featuresOption" Foreground="White" Content="Features" Margin="210,0,0,0"  Height="20" VerticalAlignment="Bottom" IsChecked="True" HorizontalAlignment="Left"  Style="{StaticResource CheckBoxStyle}" />
+							<CheckBox x:Name="PART_VEOption" Foreground="White" Content="Microsoft VE" Margin="100,0,0,0"  Height="20" VerticalAlignment="Bottom" IsChecked="True" HorizontalAlignment="Left"  Style="{StaticResource CheckBoxStyle}" />
+						</Grid>
+						<Grid x:Name="PART_allSearchResultsGrid" Visibility="Collapsed" Canvas.Top="0" Canvas.Left="-600" MaxWidth="400" MaxHeight="500" Background="#FF2B2B2B">
+							<StackPanel Orientation="Vertical">
+								<Border x:Name="PART_layersSearchResultBorder" BorderBrush="Black" BorderThickness="1,1,1,1">
+									<StackPanel Orientation="Vertical" >
+										<TextBlock Foreground="White" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Text="Layers" />
+										<ScrollViewer x:Name="PART_layersSearchResultScrollViewer" Visibility="Collapsed" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Style="{StaticResource ScrollViewerStyle}">
+											<data:DataGrid x:Name="PART_layersSearchResult" GridLinesVisibility="Vertical" RowBackground="#FF202020" AlternatingRowBackground="#FF2B2B2B" Foreground="White" Background="Black" IsReadOnly="True" AutoGenerateColumns="False" VerticalAlignment="Top" >
+												<data:DataGrid.Columns>
+													<data:DataGridTextColumn Width="200" Header="TableName" Binding="{Binding TableName}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle }"/>
+													<data:DataGridTextColumn Header="TagsOther" Binding="{Binding TagsOther}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle }"/>
+												</data:DataGrid.Columns>
+											</data:DataGrid>
+										</ScrollViewer>
+									</StackPanel>
+								</Border>
+								<Border BorderBrush="Black" x:Name="PART_locationsSearchResultBorder"  BorderThickness="1,1,1,1" >
+									<StackPanel Orientation="Vertical">
+										<TextBlock Foreground="White" Height="20" Text="Locations" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" />
+										<layoutToolkit:Accordion HorizontalAlignment="Left" Name="PART_locationsSearchResultAccordion" Width="auto" Height ="auto" SelectionMode="ZeroOrMore" HorizontalContentAlignment="Stretch" Background="#FF2B2B2B" BorderBrush="#FF2B2B2B" >
+											<layoutToolkit:Accordion.ItemContainerStyle>
+												<Style TargetType="layoutToolkit:AccordionItem">
+													<Setter Property="Background" Value="#FF2B2B2B" />
+													<Setter Property="BorderBrush" Value="#FF2B2B2B" />
+												</Style>
+											</layoutToolkit:Accordion.ItemContainerStyle>
+										</layoutToolkit:Accordion>
+									</StackPanel>
+								</Border>
+								<Border x:Name="PART_VESearchResultsBorder" BorderBrush="Black" Width="auto" BorderThickness="1,1,1,1">
+									<StackPanel Orientation="Vertical">
+										<TextBlock Foreground="White" Height="20" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="100" Text="MS/VE" />
+										<Border BorderBrush="White" Width="auto" >
+											<ListBox x:Name="PART_VESearchResults" Width="auto" HorizontalAlignment="Stretch" ItemTemplate="{StaticResource ItemDataTemplate}" FontSize="12" Style="{StaticResource ListBoxStyle}" ItemContainerStyle="{StaticResource ListBoxItemStyle}" Visibility="Collapsed" />
+										</Border>
+									</StackPanel>
+								</Border>
+							</StackPanel>
+						</Grid>
+					</Canvas>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+</ResourceDictionary>

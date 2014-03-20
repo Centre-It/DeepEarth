@@ -1,0 +1,8 @@
+﻿<UserControl x:Class="ExampleControlBing.ControlDemos.DateRangeSliderExample"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:d="clr-namespace:DeepEarth.BingMapsToolkit.Client.Controls;assembly=DeepEarth.BingMapsToolkit.Client.Controls.DateRangeSlider">
+    <Grid x:Name="LayoutRoot">
+        <d:DateRangeSlider Name="dateRangeSlider" HorizontalAlignment="Center" VerticalAlignment="Center" Width="600" Margin="4,4,4,4"/>
+    </Grid>
+</UserControl>

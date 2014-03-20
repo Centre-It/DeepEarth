@@ -1,0 +1,128 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:vsm="clr-namespace:System.Windows;assembly=System.Windows"
+    xmlns:ColorPicker="clr-namespace:DeepEarth.BingMapsToolkit.Client.Controls;assembly=DeepEarth.BingMapsToolkit.Client.Controls.ColorPicker" 
+    xmlns:GeometryStylePicker="clr-namespace:DeepEarth.BingMapsToolkit.Client.Controls" >
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/DeepEarth.BingMapsToolkit.Client.Common;component/Resources/CommonStyles.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <GeometryStylePicker:ThicknessToDisplayValueConverter x:Key="thicknessToDisplayValueConverter"/>
+    <GeometryStylePicker:OpacityToDisplayValueConverter x:Key="opacityToDisplayValueConverter"/>
+    <GeometryStylePicker:HexColorToBrushValueConverter x:Key="hexColorToBrushValueConverter"/>
+   
+    <Style TargetType="GeometryStylePicker:GeometryStylePicker">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="GeometryStylePicker:GeometryStylePicker">
+                    <StackPanel VerticalAlignment="Top">
+
+                        <vsm:VisualStateManager.VisualStateGroups>
+                            <vsm:VisualStateGroup x:Name="ColorPickerState">
+                                <vsm:VisualStateGroup.Transitions>
+                                    <VisualTransition GeneratedDuration="00:00:00.3000000"/>
+                                </vsm:VisualStateGroup.Transitions>
+                                <vsm:VisualState x:Name="ShowColorPicker">
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="PART_colourPicker" Storyboard.TargetProperty="(FrameworkElement.Height)">
+                                            <SplineDoubleKeyFrame KeyTime="00:00:00" Value="173"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </vsm:VisualState>
+                                <vsm:VisualState x:Name="HideColorPicker">
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="PART_colourPicker" Storyboard.TargetProperty="(FrameworkElement.Height)">
+                                            <SplineDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </vsm:VisualState>
+                            </vsm:VisualStateGroup>
+                        </vsm:VisualStateManager.VisualStateGroups>
+                        <Grid>
+                           <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" MinWidth="60"  />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            
+                            <TextBlock Margin="0,2,0,2" Grid.Row="0" HorizontalAlignment="Right" Text="ID" Foreground="#FFFFFFFF" />
+                            <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="0">
+                                <TextBox x:Name="IDValue" TextAlignment="Right" Margin="3,0,10,0" Height="18" Width="100" FontSize="9" HorizontalAlignment="Stretch" Text="{Binding Path=ID, Mode=TwoWay}" Style="{StaticResource TextBoxStyle}" />
+                                <Button x:Name="PART_SaveButton" Margin="5,5,5,5" ToolTipService.ToolTip="Save new style" Style="{StaticResource ButtonStyle}">
+                                    <Image Source="/DeepEarth.BingMapsToolkit.Client.Controls.GeometryStylePicker;component/Images/Save.png" Width="20" Stretch="Uniform"/>
+                                </Button>
+                                <Button x:Name="PART_CancelButton" Margin="5,5,5,5" ToolTipService.ToolTip="Cancel new style" Style="{StaticResource ButtonStyle}">
+                                    <Image Source="/DeepEarth.BingMapsToolkit.Client.Controls.GeometryStylePicker;component/Images/Delete.png" Width="20" Stretch="Uniform"/>
+                                </Button>
+                            </StackPanel>
+
+                            <TextBlock Margin="0,2,0,2" Grid.Row="1" HorizontalAlignment="Right" Text="Show Line" Foreground="#FFFFFFFF" />
+                            <CheckBox x:Name="ShowLineValue" Grid.Column="1" Grid.Row="1" Width="35" Margin="3,0,0,0" Height="18" FontSize="9" HorizontalAlignment="Left" IsChecked="{Binding Path=ShowLine, Mode=TwoWay}" Style="{StaticResource CheckBoxStyle}" />
+
+                            <TextBlock Grid.Column="0" Grid.Row="2" Text="Line Color" Foreground="#FFFFFFFF" Margin="0,1,1,1" VerticalAlignment="Center" HorizontalAlignment="Right" />
+                            <StackPanel Margin="3,1,0,1" Grid.Column="1" Grid.Row="2" Orientation="Horizontal">
+                                <ToggleButton x:Name="PART_lineColor" Foreground="#FFFFFFFF"  Height="21" Style="{StaticResource ToggleButtonStyle}" >
+                                    <Image HorizontalAlignment="Left" Source="/DeepEarth.BingMapsToolkit.Client.Controls.GeometryStylePicker;component/Images/Color.png"/>
+                                </ToggleButton>
+                                <Rectangle x:Name="LineColorDisplay" Fill="{Binding LineColour, Converter={StaticResource hexColorToBrushValueConverter}}" RadiusY="8" RadiusX="8" Stroke="#FF000000" Height="18" Margin="3,1,3,1" Width="75"/>
+                            </StackPanel>
+
+                            <TextBlock Margin="0,2,0,2" Grid.Row="3" HorizontalAlignment="Right" Text="Thickness" Foreground="#FFFFFFFF" />
+                            <TextBox x:Name="ThicknessValue" Grid.Column="1" Grid.Row="3"  Width="35" TextAlignment="Right" Margin="3,0,0,0" Height="18" FontSize="9" HorizontalAlignment="Left" Text="{Binding Path=LineWidth, Converter={StaticResource opacityToDisplayValueConverter}, Mode=TwoWay}" Style="{StaticResource TextBoxStyle}"/>
+                            <Slider x:Name="LineThickness" Grid.Column="1" Grid.Row="3"  SmallChange="1" LargeChange="4" Maximum="20" Minimum="1" Value="{Binding LineWidth, Mode=TwoWay}"  Margin="38,1,3,1" HorizontalContentAlignment="Left" Style="{StaticResource SliderStyle}"/>
+
+                            <TextBlock Margin="0,2,0,2" Grid.Row="4" HorizontalAlignment="Right" Text="Show Fill" Foreground="#FFFFFFFF" />
+                            <CheckBox x:Name="ShowFillValue" Grid.Column="1" Grid.Row="4" Width="35" Margin="3,0,0,0" Height="18" FontSize="9" HorizontalAlignment="Left" IsChecked="{Binding Path=ShowFill, Mode=TwoWay}" Style="{StaticResource CheckBoxStyle}" />
+
+                            <TextBlock Grid.Column="0" Grid.Row="5" Text="Fill Color" Foreground="#FFFFFFFF" Margin="0,1,1,1" VerticalAlignment="Center" HorizontalAlignment="Right" />
+                            <StackPanel HorizontalAlignment="Stretch" Margin="3,1,0,1" Width="Auto" Grid.Column="1" Grid.Row="5" Orientation="Horizontal">
+                                <ToggleButton x:Name="PART_fillColor" Foreground="#FFFFFFFF"  Height="21" Style="{StaticResource ToggleButtonStyle}">
+                                    <Image HorizontalAlignment="Left" Source="/DeepEarth.BingMapsToolkit.Client.Controls.GeometryStylePicker;component/Images/Color.png"/>
+                                </ToggleButton>
+                                <Rectangle x:Name="FillColorDisplay" Fill="{Binding PolyFillColour, Converter={StaticResource hexColorToBrushValueConverter}}" RadiusY="8" RadiusX="8" Margin="3,1,3,1" Width="75" Stroke="#FF000000" Height="18"/>
+                            </StackPanel>
+
+                            <TextBlock Margin="0,2,0,2" Grid.Row="6" HorizontalAlignment="Right" Text="Polygon Thickness" Foreground="#FFFFFFFF" TextWrapping="Wrap" />
+                            <TextBox x:Name="PolygonThicknessValue" Grid.Column="1" Grid.Row="6"  Width="35" TextAlignment="Right" Margin="3,0,0,0" Height="18" FontSize="9" HorizontalAlignment="Left" Text="{Binding Path=PolygonLineWidth, Converter={StaticResource opacityToDisplayValueConverter}, Mode=TwoWay}" Style="{StaticResource TextBoxStyle}"/>
+                            <Slider x:Name="PolygonLineThickness" Grid.Column="1" Grid.Row="6"  SmallChange="1" LargeChange="4" Maximum="20" Minimum="1" Value="{Binding PolygonLineWidth, Mode=TwoWay}"  Margin="38,1,3,1" HorizontalContentAlignment="Left" Style="{StaticResource SliderStyle}"/>
+
+                            <TextBlock Grid.Column="0" Grid.Row="7" Text="Polygon Line Color" Foreground="#FFFFFFFF" Margin="0,1,1,1" VerticalAlignment="Center" HorizontalAlignment="Right" TextWrapping="Wrap" />
+                            <StackPanel Margin="3,1,0,1" Grid.Column="1" Grid.Row="7" Orientation="Horizontal">
+                                <ToggleButton x:Name="PART_polygonLineColor" Foreground="#FFFFFFFF"  Height="21" Style="{StaticResource ToggleButtonStyle}" >
+                                    <Image HorizontalAlignment="Left" Source="/DeepEarth.BingMapsToolkit.Client.Controls.GeometryStylePicker;component/Images/Color.png"/>
+                                </ToggleButton>
+                                <Rectangle x:Name="PolygonLineColorDisplay" Fill="{Binding PolygonLineColour, Converter={StaticResource hexColorToBrushValueConverter}}" RadiusY="8" RadiusX="8" Stroke="#FF000000" Height="18" Margin="3,1,3,1" Width="75"/>
+                            </StackPanel>
+                            
+                            <TextBlock Margin="0,2,0,2" Grid.Row="8" HorizontalAlignment="Right" Text="IconURL" Foreground="#FFFFFFFF" />
+                            <ListBox x:Name="PART_Icons" Grid.Column="1" Grid.Row="8" Margin="3,0,10,0" FontSize="9" HorizontalAlignment="Stretch" SelectedItem="{Binding Path=IconURL, Mode=TwoWay}"  Style="{StaticResource ListBoxStyle}"/>
+
+                            <StackPanel Grid.Column="0" Grid.Row="9" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,1,0,1">
+                                <TextBlock Text="IconScale" Foreground="#FFFFFFFF" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,3,0" />
+                                <TextBlock Text="%" Foreground="#FFFFFFFF" VerticalAlignment="Center" />
+                            </StackPanel>
+                            <TextBox x:Name="IconScaleValue" Grid.Column="1" Grid.Row="9" Width="35" TextAlignment="Right" Height="18" FontSize="9" HorizontalAlignment="Left" Margin="3,0,0,0" Text="{Binding Path=IconScale, Converter={StaticResource thicknessToDisplayValueConverter}, Mode=TwoWay}" Style="{StaticResource TextBoxStyle}"/>
+                            <Slider x:Name="IconScale" Grid.Column="1" Grid.Row="9" SmallChange="0.1" LargeChange="1" Maximum="5" Minimum="0" Value="{Binding IconScale, Mode=TwoWay}"  Margin="38,1,3,1" HorizontalContentAlignment="Left" Orientation="Horizontal" Style="{StaticResource SliderStyle}"/>
+                        </Grid>
+                        <ColorPicker:ColorPicker x:Name="PART_colourPicker" Margin="0,3,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Height="0"/>
+                    </StackPanel>
+                </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+</ResourceDictionary>

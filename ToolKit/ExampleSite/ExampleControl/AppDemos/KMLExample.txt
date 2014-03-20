@@ -1,0 +1,146 @@
+﻿XAML:
+
+<UserControl x:Class="ExampleControlBing.AppDemos.KMLExample"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:m="clr-namespace:Microsoft.Maps.MapControl;assembly=Microsoft.Maps.MapControl" 
+    xmlns:lp="clr-namespace:DeepEarth.BingMapsToolkit.Client.Controls;assembly=DeepEarth.BingMapsToolkit.Client.Controls.LayerPanel">
+	<Grid x:Name="LayoutRoot">
+		<m:Map x:Name="map" CredentialsProvider="{StaticResource MyCredentials}" />
+		<lp:AccordionLayerPanel Visibility="Collapsed" Name="layerPanel" MapName="map" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="4,4,4,4"/>
+	</Grid>
+</UserControl>
+
+CS:
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Animation;
+using System.Windows.Shapes;
+using System.Windows.Resources;
+using System.IO;
+using System.Xml.Linq;
+using System.Collections.ObjectModel;
+
+using DeepEarth.BingMapsToolkit.Client.Common.Entities;
+using DeepEarth.BingMapsToolkit.Common.Entities;
+using DeepEarth.BingMapsToolkit.Client.Common;
+using DeepEarth.BingMapsToolkit.Client.Controls;
+
+using Point = GisSharpBlog.NetTopologySuite.Geometries.Point;
+
+namespace ExampleControlBing.AppDemos
+{
+	public partial class KMLExample : UserControl
+	{
+		private Dictionary<string, List<double>> Points = new Dictionary<string, List<double>>();
+
+		public KMLExample()
+		{
+			InitializeComponent();
+			Loaded += new RoutedEventHandler(KMLExample_Loaded);
+		}
+
+		void  KMLExample_Loaded(object sender, RoutedEventArgs e)
+		{
+			layerPanel.LoadLayerData += layerPanel_LoadLayer;
+
+			//Reading KML file
+			StreamResourceInfo sri =
+			Application.GetResourceStream(new Uri("/ExampleControlBing;component/AppDemos/KMLExample.kml",
+												 UriKind.Relative));
+			string kml ;
+			using (TextReader tr = new StreamReader(sri.Stream))
+			{
+				kml = tr.ReadToEnd();
+			}
+
+			layerPanel.Styles = GetStyles(kml);
+			layerPanel.Layers = GetLayers(kml);
+		}
+
+		private List<LayerDefinition> GetLayers(string kml)
+		{
+			var layers = new Dictionary<string, LayerDefinition>();
+            XDocument doc = XDocument.Parse(kml);
+
+			int i= 0;
+            List<LayerDefinition> layerDefinitions = new List<LayerDefinition>();
+			foreach (XElement elem in doc.Descendants("Point"))
+			{
+				string key = "point"+i.ToString();
+				layerDefinitions.Add( new LayerDefinition(){
+					LayerStyleName = elem.Parent.Element("styleUrl") != null ? elem.Parent.Element("styleUrl").Value.Substring(1) : "defaultstyle",
+					MaxDisplayLevel = 100,
+					MBR = new byte[0],
+					MinDisplayLevel = 1,
+					ZIndex = 30,
+					Temporal = true,
+					ObjectAttributes = new Dictionary<int, LayerObjectAttributeDefinition>(),
+					LayerType = 1,
+					LabelOn = true,
+					Selected = true,
+					LayerID = key,
+					LayerAlias = key,
+					Tags = "Points",
+					IconURI = ((elem.Parent.Element("styleUrl") != null) && (layerPanel.Styles.ContainsKey(elem.Parent.Element("styleUrl").Value.Substring(1)))) ? layerPanel.Styles[elem.Parent.Element("styleUrl").Value.Substring(1)].IconURL : "defaultstyle",
+				});
+
+				if (Points.ContainsKey(key))
+					Points.Remove(key);
+
+				Points.Add(key, new List<double>());
+
+				if (elem.Descendants("coordinates") != null)
+					Points[key].AddRange((elem.Descendants("coordinates").FirstOrDefault().Value.Split(',').Select(u=>double.Parse(u))));
+				++i;
+			}
+
+			return layerDefinitions;
+		}
+
+		private static Dictionary<string, StyleSpecification> GetStyles(string kml)
+		{
+			var styles = Utilities.ProcessKML(kml);
+
+			styles.Add("defaultstyle", new StyleSpecification
+			{
+				ID = "style 1",
+				LineColour = "FF1B0AA5",
+				LineWidth = 2,
+				PolyFillColour = "88677E1E",
+				ShowFill = true,
+				ShowLine = true,
+				IconURL = "http://soulsolutions.com.au/Images/pin.png",
+				IconScale = 2
+			});
+			return styles;
+		}
+
+		private void layerPanel_LoadLayer(object sender, LoadLayerEventArgs args,
+										  Action<ObservableCollection<VectorLayerData>, LayerDefinition> callback)
+		{
+			var data = new ObservableCollection<VectorLayerData>();
+
+			//Processing point
+			if (args.Layer.LayerID.IndexOf("point") == 0)
+			{
+				var point = new Point(Points[args.Layer.LayerID][0], Points[args.Layer.LayerID][1]);
+				data.Add(new VectorLayerData
+				{
+					Geo = point.AsBinary(),
+					ID = args.Layer.LayerID + Points[args.Layer.LayerID][0].ToString() + ',' + Points[args.Layer.LayerID][1].ToString(),
+					//TimeStamp = DateTime.Now.AddHours(x),
+				});
+			}
+			callback(data, args.Layer);
+		}
+	}
+}

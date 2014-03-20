@@ -1,0 +1,66 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ToolPanel="clr-namespace:DeepEarth.Client.Controls;assembly=DeepEarth.Client.Controls.ToolPanel"
+    xmlns:DEMapControl="clr-namespace:DeepEarth.Client.Controls.DEMap"
+	>
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/DeepEarth.Client.Controls.DEMap.Common;component/Resources/CommonStyles.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+    
+    <Style TargetType="DEMapControl:CoordinatePanel">
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="DEMapControl:CoordinatePanel">
+                    <ToolPanel:ToolPanel x:Name="PART_toolPanel">
+                        <ToolPanel:ToolPanel.Content>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock x:Name="PART_yCoordTextBlock" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="{TemplateBinding Foreground}" FontSize="{TemplateBinding FontSize}"/>
+                                <TextBlock x:Name="PART_xCoordTextBlock" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="{TemplateBinding Foreground}" FontSize="{TemplateBinding FontSize}"/>
+                                <TextBlock x:Name="PART_zoomTextBlock" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="{TemplateBinding Foreground}" FontSize="{TemplateBinding FontSize}"/>
+                            </Grid>
+                        </ToolPanel:ToolPanel.Content>
+                        <ToolPanel:ToolPanel.Options>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="170"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="30"></RowDefinition>
+                                    <RowDefinition Height="30"></RowDefinition>
+                                    <RowDefinition Height="30"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="0">
+                                    <TextBlock Text="Lat:" Width="25" Margin="2,6,2,2" TextAlignment="Right"/>
+                                    <TextBox x:Name="PART_gotoLatitudeText" Margin="8,2,8,2" Width="130" Style="{StaticResource TextBoxStyle}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="1">
+                                    <TextBlock Text="Lon:" Width="25" Margin="2,6,2,2" TextAlignment="Right"/>
+                                    <TextBox x:Name="PART_gotoLongitudeText" Margin="8,2,8,2" Width="130" Style="{StaticResource TextBoxStyle}"/>
+                                </StackPanel>
+                                <Button x:Name="PART_gotoButton" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Margin="5,5,5,5" ToolTipService.ToolTip="go" Style="{StaticResource ButtonStyle}" >
+                                    <Image Source="/DeepEarth.Client.Controls.DEMap.CoordinatePanel;component/Images/go.png" Width="20" Stretch="Uniform"/>
+                                </Button>
+                                <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2">
+                                    <RadioButton x:Name="PART_displayModeDecimal" Margin="2,2,2,2" Content="Decimal" Style="{StaticResource RadioButtonStyle}" />
+                                    <RadioButton x:Name="PART_displayModeDDMMSS" Margin="2,2,2,2" Content="DDMMSS" Style="{StaticResource RadioButtonStyle}" />
+                                    <RadioButton x:Name="PART_displayModeUTM" Margin="2,2,2,2" Content="UTM" Style="{StaticResource RadioButtonStyle}" />
+                                </StackPanel>
+                            </Grid>
+                        </ToolPanel:ToolPanel.Options>
+                    </ToolPanel:ToolPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
+
