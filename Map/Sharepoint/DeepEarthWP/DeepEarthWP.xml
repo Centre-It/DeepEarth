@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Elements Id="87522800-e396-4b0c-b04f-2cc3d7f82aa6" xmlns="http://schemas.microsoft.com/sharepoint/">
-  <Module Name="WebParts" List="113" Url="_catalogs/wp">
-    <File Path="DeepEarthWP.webpart" Url="DeepEarthWP.webpart" Type="GhostableInLibrary" />
-  </Module>
-</Elements>

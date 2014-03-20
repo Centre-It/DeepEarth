@@ -1,8 +1,0 @@
-﻿<UserControl x:Class="ExampleControlBing.ControlDemos.ImageSpriteExample"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
-    xmlns:sprite="clr-namespace:DeepEarth.BingMapsToolkit.Client.Controls;assembly=DeepEarth.BingMapsToolkit.Client.Controls.ImageSprite">
-    <Grid x:Name="LayoutRoot">
-        <sprite:ImageSprite Name="imageSprite" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="4,4,4,4"/>
-    </Grid>
-</UserControl>

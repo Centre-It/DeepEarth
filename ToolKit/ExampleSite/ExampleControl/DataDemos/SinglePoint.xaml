@@ -1,8 +1,0 @@
-﻿<UserControl x:Class="ExampleControlBing.DataDemos.SinglePoint"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
-    xmlns:m="clr-namespace:Microsoft.Maps.MapControl;assembly=Microsoft.Maps.MapControl">
-    <Grid x:Name="LayoutRoot">
-        <m:Map x:Name="map" CredentialsProvider="{StaticResource MyCredentials}" />
-    </Grid>
-</UserControl>

@@ -1,8 +1,0 @@
-﻿<UserControl x:Class="ExampleControlBing.ControlDemos.ColorPickerExample"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
-    xmlns:cp="clr-namespace:DeepEarth.BingMapsToolkit.Client.Controls;assembly=DeepEarth.BingMapsToolkit.Client.Controls.ColorPicker">
-    <Grid x:Name="LayoutRoot">
-        <cp:ColorPicker Name="picker" />
-    </Grid>
-</UserControl>

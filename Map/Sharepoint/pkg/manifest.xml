@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Solution SolutionId="ee8b2868-3033-4d45-b0b3-59dc6cb26c78" xmlns="http://schemas.microsoft.com/sharepoint/">
-  <FeatureManifests>
-    <FeatureManifest Location="DeepEarthWP\feature.xml" />
-  </FeatureManifests>
-  <Assemblies>
-    <Assembly Location="DeepEarthWP.dll" DeploymentTarget="GlobalAssemblyCache" />
-  </Assemblies>
-</Solution>
